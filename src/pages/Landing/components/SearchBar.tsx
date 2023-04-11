@@ -1,7 +1,7 @@
 import React from "react";
 import "./SearchBar.css";
-import DropDown from "../../../shared/components/Dropdown";
-import DayPicker from "../../../shared/components/DatePicker";
+import DropDown from "./Dropdown";
+import DayPicker from "./DatePicker";
 
 const SearchBar: React.FC = () => {
   return (
@@ -15,7 +15,6 @@ const SearchBar: React.FC = () => {
       <div className="check-in">
         <DayPicker />
       </div>
-      <button className="search-btn">Search</button>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 #dropdown {
     width: 100%;
-    height: 100%;
+    height: 2.5rem;
     /* background-color: white; */
     display: flex;
     justify-content: center;
@@ -9,16 +9,16 @@
 }
 
 #dropdown-basic {
-    width: 90%;
-    height: 2.2rem;
+    width: 100%;
+    height: 100%;
     color: #7f8083;
     background-color: #efe1e8;
     border-style: none;
     font-size: 16px;
     text-align: start;
-
+    border-radius: 6px;
     background-size: 10px;
-    background-image: url("./logo192.png");
+    background-image: url("../../../assets/images/dropdown-icon.png");
     background-repeat: no-repeat;
     background-position:  right 15px center;
 }

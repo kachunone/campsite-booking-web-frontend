@@ -6,8 +6,12 @@ import camp2 from "../../assets/images/landing-img/camping-fire.png";
 import camp3 from "../../assets/images/landing-img/camping-lake.png";
 import camp4 from "../../assets/images/landing-img/camping-sunrise.jpg";
 
+import campFireIcon from "../../assets/images/landing-img/campfire.png";
+import mapIcon from "../../assets/images/landing-img/map.png";
+import backpackIcon from "../../assets/images/landing-img/backpack.png";
+
 import SearchBar from "./components/SearchBar";
-import DayPicker from "../../shared/components/DatePicker";
+
 import "react-datepicker/dist/react-datepicker.css";
 
 const Landing: React.FC = () => {
@@ -29,10 +33,33 @@ const Landing: React.FC = () => {
           <h1>Let's Go Camping!</h1>
           <div className="search-bar-container">
             <SearchBar />
+            <button className="search-btn">SEARCH</button>
           </div>
         </div>
       </main>
-      <div className="promo-bar"></div>
+      <div className="promo-bar">
+        <div className="bar-item-container">
+          <img src={campFireIcon} alt="" />
+          <div className="text-container">
+            <h4>3500+</h4>
+            <p>Campgrounds</p>
+          </div>
+        </div>
+        <div className="bar-item-container">
+          <img src={mapIcon} alt="" />
+          <div className="text-container">
+            <h4>57</h4>
+            <p>Countries/States</p>
+          </div>
+        </div>
+        <div className="bar-item-container">
+          <img src={backpackIcon} alt="" />
+          <div className="text-container">
+            <h4>Countless</h4>
+            <p>Happy campers</p>
+          </div>
+        </div>
+      </div>
       <div className="intro-container">
         <div className="left-side">
           <div className="left-content">
