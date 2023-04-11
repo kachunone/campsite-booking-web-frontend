@@ -8,8 +8,8 @@ import "./DatePicker.css";
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 const DayPicker: React.FC = () => {
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [endDate, setEndDate] = useState<Date | null>(null);
 
   const onChange = (dates: [Date, Date]) => {
     const [start, end] = dates;
@@ -27,6 +27,7 @@ const DayPicker: React.FC = () => {
       selectsRange={true}
       minDate={new Date()}
       dateFormat="MMM d, yyyy"
+      placeholderText="Check in - Check out"
     />
   );
 };

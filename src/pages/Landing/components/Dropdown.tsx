@@ -1,17 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import "./Dropdown.css";
 
-const DropDown: React.FC = () => {
+interface DropDownProps {
+  defaultSelected?: string;
+  options: string[];
+}
+
+const DropDown: React.FC<DropDownProps> = (props) => {
+  const [selectedItem, setSelectedItem] = useState<string>(
+    props.defaultSelected || ""
+  );
+
+  const handleSelect = (eventKey: string | null) => {
+    setSelectedItem(eventKey!);
+  };
+
   return (
-    <Dropdown id="dropdown">
+    <Dropdown id="dropdown" onSelect={handleSelect}>
       <Dropdown.Toggle id="dropdown-basic" bsPrefix="none">
-        Toronto
+        {selectedItem ? selectedItem : "Select an option"}
       </Dropdown.Toggle>
       <Dropdown.Menu id="menu">
-        <Dropdown.Item>Action</Dropdown.Item>
-        <Dropdown.Item>Another action</Dropdown.Item>
-        <Dropdown.Item>Something else</Dropdown.Item>
+        {props.options.map((option) => (
+          <Dropdown.Item key={option} eventKey={option}>
+            {option}
+          </Dropdown.Item>
+        ))}
       </Dropdown.Menu>
     </Dropdown>
   );

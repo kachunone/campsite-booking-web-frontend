@@ -98,7 +98,7 @@
 }
 
 .left-content {
-  margin-top: 5rem
+  margin-top: 6.5rem
 }
 
 .left-content > h2 {
@@ -178,7 +178,6 @@
   font-size: larger;
   font-weight: 500;
   border-style: none;
-  /* height: 3.5rem; */
   width: 16%;
   border-bottom-right-radius: 8px;
   border-top-right-radius: 8px;
