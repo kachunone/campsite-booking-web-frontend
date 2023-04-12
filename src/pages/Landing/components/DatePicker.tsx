@@ -1,33 +1,27 @@
-import React, { useState } from "react";
+import React, { ReactElement, useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "./DatePicker.css";
 
-// CSS Modules, react-datepicker-cssmodules.css
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+interface DayPicker {
+  startDate: Date | null;
+  endDate: Date | null;
+  onChangeHander: (dates: [Date, Date]) => void;
+}
 
-const DayPicker: React.FC = () => {
-  const [startDate, setStartDate] = useState<Date | null>(null);
-  const [endDate, setEndDate] = useState<Date | null>(null);
-
-  const onChange = (dates: [Date, Date]) => {
-    const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
-  };
-
+const DayPicker: React.FC<DayPicker> = (props) => {
   return (
     <DatePicker
       id="date-picker"
-      selected={startDate}
-      onChange={onChange}
-      startDate={startDate}
-      endDate={endDate}
+      selected={props.startDate}
+      onChange={props.onChangeHander}
+      startDate={props.startDate}
+      endDate={props.endDate}
       selectsRange={true}
       minDate={new Date()}
-      dateFormat="MMM d, yyyy"
-      placeholderText="Check in - Check out"
+      dateFormat="MMM dd, yyyy"
+      placeholderText={"Select Start & End dates"}
     />
   );
 };

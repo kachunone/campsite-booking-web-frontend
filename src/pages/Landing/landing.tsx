@@ -15,17 +15,6 @@ import SearchBar from "./components/SearchBar";
 import "react-datepicker/dist/react-datepicker.css";
 
 const Landing: React.FC = () => {
-  const [selectedType, setSelectedType] = useState<string>("Show All");
-  const [selectedNights, setSelectedNights] = useState<string>("Show All");
-
-  const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    if (event.target.id === "select-type") {
-      setSelectedType(event.target.value);
-    } else {
-      setSelectedNights(event.target.value);
-    }
-  };
-
   return (
     <Fragment>
       <main className="landing">
@@ -33,7 +22,6 @@ const Landing: React.FC = () => {
           <h1>Let's Go Camping!</h1>
           <div className="search-bar-container">
             <SearchBar />
-            <button className="search-btn">SEARCH</button>
           </div>
         </div>
       </main>

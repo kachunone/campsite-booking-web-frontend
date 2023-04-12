@@ -3,11 +3,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-color: beige; */
-    /* color: white; */
     display: grid;
-    /* justify-content: center; */
-    /* align-content: center; */
     height: 85vh;
     font-family: "rubik", Arial, Helvetica, sans-serif;
     position: relative;
@@ -16,21 +12,12 @@
 .main-container {
   position: absolute;
   margin-top: 180px;
-  /* align-self: center; */
   justify-self: center;
   display: flex;
   flex-direction: column;
-  /* background-color: #20479a; */
   align-items: center;
-  /* margin-top: 0rem; */
 }
  
-.search-bar-container {
-  /* background-color: rgb(212, 61, 61); */
-  margin-top: 50px;
-  display: flex;
-}
-
 .landing h1 {
    color: #1F2532;
    font-size: 35px;
@@ -59,20 +46,17 @@
 }
 
 .bar-item-container {
-  /* background-color: #EE002E; */
   display: flex;
   align-items: center;
 }
 
 .bar-item-container h4,
 .bar-item-container p {
-  /* background-color: bisque; */
   text-align: left;
   margin: 0;
 }
 
 .text-container {
-  /* background-color: aliceblue; */
   display: flex;
   flex-direction: column;
   align-items:flex-start;
@@ -172,14 +156,10 @@
   grid-column: 5/8;
 }
 
-.search-btn {
-  background-color: #EE002E;
-  color: white;
-  font-size: larger;
-  font-weight: 500;
-  border-style: none;
-  width: 16%;
-  border-bottom-right-radius: 8px;
-  border-top-right-radius: 8px;
+.search-bar-container {
+  margin-top: 50px;
+  display: flex;
+  /* background-color: #404092; */
 }
+
 

@@ -1,0 +1,12 @@
+.choosing {
+    background: #153855;
+    height: 100vh;
+    display: grid;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.choosing-search-bar-container {
+    margin-top: 10vh;
+}
+

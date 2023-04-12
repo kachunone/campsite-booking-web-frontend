@@ -1,17 +1,25 @@
 .search-bar {
-    width: 40rem;
-    /* height: 2.5rem; */
+    width: 50rem;
     display: flex;
-    /* flex-direction: column; */
     justify-content: space-between;
     background-color: white;
     gap: 10px;
-    padding: 10px;
+    padding: 8px;
     border-radius: 8px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    /* align-items: stretch; */
 }
+
+.search-btn {
+    background-color: #EE002E;
+    color: white;
+    font-size: large;
+    font-weight: 500;
+    border-style: none;
+    width: 16%;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+  }
 
 .equipments-container {
     background-color: #FFFFFF;
@@ -19,65 +27,25 @@
     width: 100%;
     border-bottom-left-radius: 8px;
     border-top-left-radius: 8px;
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
     flex: 0.8;
 }
-
-/* .equipments {
-    width: 90%;
-    height: 75%;
-    border-radius: 5px; 
-    appearance: none; 
-    color: #7f8083;
-    background-color: #e3dfe1;
-    border-style: none;
-
-    background-size: 10px;
-    background-image: url("./logo192.png");
-    background-repeat: no-repeat;
-    background-position:  6.5rem center;
-} */
 
 .regions-container {
     background-color: #FFFFFF;
     height: 100%;
     width: 100%;
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
     flex: 0.8;
 }
 
-/* .regions {
-    width: 90%;
-    height: 75%;
-    border-radius: 5px; 
-    appearance: none; 
-    color: #7f8083;
-    background-color: #e3dfe1;
-    border-style: none;
-
-    background-size: 10px;
-    background-image: url("./logo192.png");
-    background-repeat: no-repeat;
-    background-position:  6.5rem center;
-} */
-
 .check-in {
-    /* background-color: #3fc148; */
-    /* height: 100%; */
-    /* width: 100%; */
-
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items:center; */
     flex: 1;
+}
+
+#date-picker {
+    height: 2.25rem;
 }
 
 .check-out {
@@ -85,5 +53,4 @@
     height: 100%;
     width: 100%;
 }
-
 
