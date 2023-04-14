@@ -13,43 +13,50 @@ import backpackIcon from "../../assets/images/landing-img/backpack.png";
 import SearchBar from "./components/SearchBar";
 
 import "react-datepicker/dist/react-datepicker.css";
+import { Col, Row, Container } from "react-bootstrap";
 
 const Landing: React.FC = () => {
   return (
-    <Fragment>
-      <main className="landing">
-        <div className="main-container">
-          <h1>Let's Go Camping!</h1>
-          <div className="search-bar-container">
-            <SearchBar />
+    <Container fluid>
+      <Row className="main">
+        <Col className="main-container">
+          <div>
+            <h1>Let's Go Camping!</h1>
+            <div className="search-bar-container">
+              <SearchBar />
+            </div>
           </div>
+        </Col>
+      </Row>
+      <Row className="promo-bar-container">
+        <div className="promo-bar">
+          <Row>
+            <Col xs={12} md={12} lg={4} className="bar-item-container">
+              <img src={campFireIcon} alt="" />
+              <div className="text-container">
+                <h4>3500+</h4>
+                <p>Campgrounds</p>
+              </div>
+            </Col>
+            <Col xs={12} md={12} lg={4} className="bar-item-container">
+              <img src={mapIcon} alt="" />
+              <div className="text-container">
+                <h4>57</h4>
+                <p>Countries/States</p>
+              </div>
+            </Col>
+            <Col xs={12} md={12} lg={4} className="bar-item-container">
+              <img src={backpackIcon} alt="" />
+              <div className="text-container">
+                <h4>Countless</h4>
+                <p>Happy campers</p>
+              </div>
+            </Col>
+          </Row>
         </div>
-      </main>
-      <div className="promo-bar">
-        <div className="bar-item-container">
-          <img src={campFireIcon} alt="" />
-          <div className="text-container">
-            <h4>3500+</h4>
-            <p>Campgrounds</p>
-          </div>
-        </div>
-        <div className="bar-item-container">
-          <img src={mapIcon} alt="" />
-          <div className="text-container">
-            <h4>57</h4>
-            <p>Countries/States</p>
-          </div>
-        </div>
-        <div className="bar-item-container">
-          <img src={backpackIcon} alt="" />
-          <div className="text-container">
-            <h4>Countless</h4>
-            <p>Happy campers</p>
-          </div>
-        </div>
-      </div>
-      <div className="intro-container">
-        <div className="left-side">
+      </Row>
+      <Row className="intro-container">
+        <Col className="left-side">
           <div className="left-content">
             <h2>Discover Your Next Camping Adventure</h2>
             <p>
@@ -61,8 +68,8 @@ const Landing: React.FC = () => {
             </p>
             <button className="start-btn">START</button>
           </div>
-        </div>
-        <div className="right-side">
+        </Col>
+        <Col className="right-side">
           <div className="img-container">
             <div className="main-img">
               <img src={camp1} alt="" />
@@ -77,9 +84,9 @@ const Landing: React.FC = () => {
               <img src={camp4} alt="" />
             </div>
           </div>
-        </div>
-      </div>
-    </Fragment>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

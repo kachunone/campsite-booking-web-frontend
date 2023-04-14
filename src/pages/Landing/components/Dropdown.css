@@ -5,9 +5,10 @@
     border-style: none;
     text-align: start;
     border-radius: 6px;
-    background-size: 10px;
+    height: 3rem;
+    /* background-size: 10px;
     background-image: url("../../../assets/images/dropdown-icon.png");
     background-repeat: no-repeat;
-    background-position:  right 15px center;
+    background-position:  right 15px center; */
 }
 

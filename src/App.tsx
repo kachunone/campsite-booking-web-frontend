@@ -11,7 +11,7 @@ import "./App.css";
 function App(): JSX.Element {
   return (
     <BrowserRouter>
-      <NavLinks />
+      {/* <NavLinks /> */}
       <Routes>
         <Route path="/landing" element={<Home />}></Route>
         <Route path="/choosing" element={<Choosing />}></Route>

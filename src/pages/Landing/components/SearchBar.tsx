@@ -4,6 +4,7 @@ import DropDown from "./Dropdown";
 import DayPicker from "./DatePicker";
 import { useNavigate } from "react-router-dom";
 import { GeoAltFill, XDiamondFill } from "react-bootstrap-icons";
+import { Col, Row, Container } from "react-bootstrap";
 
 const dropDownEquipment = {
   defaultSelected: "Equipments",
@@ -62,36 +63,36 @@ const SearchBar: React.FC = () => {
   };
 
   return (
-    <div style={{ display: "flex" }}>
-      <div className="search-bar">
-        <div className="equipments-container">
-          <DropDown
-            options={dropDownEquipment.options}
-            cb={handleSelectEquipment}
-            selectedItem={selectedEquipment}
-            icon={equipmentIcon}
-          />
-        </div>
-        <div className="regions-container">
-          <DropDown
-            options={dropDownRegion.options}
-            cb={handleSelectRegion}
-            selectedItem={selectedRegion}
-            icon={regionIcon}
-          />
-        </div>
-        <div className="check-in">
-          <DayPicker
-            startDate={startDate}
-            endDate={endDate}
-            onChangeHander={onChangeDates}
-          />
-        </div>
-      </div>
-      <button className="search-btn" onClick={btnPressed}>
-        SEARCH
-      </button>
-    </div>
+    <Row className="search-bar">
+      <Col xs={12} md={6} lg={3} className="equipments-container">
+        <DropDown
+          options={dropDownEquipment.options}
+          cb={handleSelectEquipment}
+          selectedItem={selectedEquipment}
+          icon={equipmentIcon}
+        />
+      </Col>
+      <Col xs={12} md={6} lg={3} className="regions-container">
+        <DropDown
+          options={dropDownRegion.options}
+          cb={handleSelectRegion}
+          selectedItem={selectedRegion}
+          icon={regionIcon}
+        />
+      </Col>
+      <Col xs={12} md={12} lg={4} className="check-in">
+        <DayPicker
+          startDate={startDate}
+          endDate={endDate}
+          onChangeHander={onChangeDates}
+        />
+      </Col>
+      <Col xs={12} md={12} lg={2} className="btn-container">
+        <button className="search-btn" onClick={btnPressed}>
+          SEARCH
+        </button>
+      </Col>
+    </Row>
   );
 };
 

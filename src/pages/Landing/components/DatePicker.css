@@ -1,10 +1,11 @@
 #date-picker {
     color: #7f8083;
     width: 100%;
-    /* height: 2.5rem; */
     background-color: #efe1e8;
     border-style: none;
     font-size: 16px;
-    text-align: center;
+    /* text-align: center; */
     border-radius: 6px;
-}
+    padding-left: 14px;
+    height: 3rem;
+} 

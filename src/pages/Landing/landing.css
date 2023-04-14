@@ -1,53 +1,74 @@
-.landing {
+.main {
     background-image: url("../../assets/images/landing-img/img-bg.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    display: grid;
     height: 85vh;
     font-family: "rubik", Arial, Helvetica, sans-serif;
-    position: relative;
+    /* position: relative; */
+    /* width: 100vw; */
+    
 }
 
 .main-container {
-  position: absolute;
-  margin-top: 180px;
-  justify-self: center;
+  /* background-color:rgba(221, 37, 37, 0.3); */
+  /* position: absolute; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* justify-content: center; */
+}
+
+.main-container > div {
+  text-align: center;
+  margin-top: 13rem;
+}
+
+.my-4 {
+  margin-top: 30rem;
 }
  
-.landing h1 {
+.main h1 {
    color: #1F2532;
    font-size: 35px;
    font-weight: 400;
+   margin-bottom: 1rem;
+}
+
+.promo-bar-container {
+  position: relative;
+  /* background-color: #dcd5d9; */
+  /* width: 100vw; */
+  /* height: 7rem; */
+  margin-top: -50px;
+  /* border-radius: 15px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3); */
+
+  /* display: flex; */
+  /* justify-content: space-evenly; */
+  /* gap: 100px; */
+  /* align-items: center; */
+  justify-content: center;
 }
 
 .promo-bar {
-  position: relative;
   background-color: white;
-  width: 60rem;
-  height: 7rem;
-  margin: 0 auto;
-  margin-top: -3.5rem;
+  /* margin: 2rem; */
+  width: 70vw;
   border-radius: 15px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
-
-  display: flex;
-  justify-content: space-evenly;
-  gap: 100px;
-
 }
 
 .promo-bar img {
-  width: 120px;
-  height: 100%;
+  width: 100px;
+  /* height: 100%; */
 }
 
 .bar-item-container {
-  display: flex;
-  align-items: center;
+  /* background-color: aqua; */
+  display: flex; 
+  /* margin: 2rem; */
+
 }
 
 .bar-item-container h4,
@@ -64,7 +85,6 @@
   width: 100%;
   height: 100%;
 }
-
 
 .intro-container {
   display: flex;
@@ -104,7 +124,7 @@
   height: 50px;
   width: 120px;
   font-size: larger;
-  background-color: red;
+  background-color: #af3b52;
   color: white;
   font-weight: 500;
   border-radius: 6px;
@@ -155,11 +175,3 @@
 .twin:last-of-type {
   grid-column: 5/8;
 }
-
-.search-bar-container {
-  margin-top: 50px;
-  display: flex;
-  /* background-color: #404092; */
-}
-
-
