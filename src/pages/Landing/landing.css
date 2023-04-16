@@ -1,62 +1,45 @@
+.landing-container p,
+.landing-container h1,
+.landing-container h2,
+.landing-container h3,
+.landing-container h4,
+.landing-container h5
+{
+  font-family: "rubik", Arial, Helvetica, sans-serif;
+}
+
 .main {
     background-image: url("../../assets/images/landing-img/img-bg.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 85vh;
-    font-family: "rubik", Arial, Helvetica, sans-serif;
-    /* position: relative; */
-    /* width: 100vw; */
-    
+    height: 45rem;
 }
 
 .main-container {
-  /* background-color:rgba(221, 37, 37, 0.3); */
-  /* position: absolute; */
+  /* background-color: #af3b52; */
+  margin-top: 14rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  /* justify-content: center; */
-}
-
-.main-container > div {
   text-align: center;
-  margin-top: 13rem;
+  align-items: center;
 }
 
-.my-4 {
-  margin-top: 30rem;
-}
- 
-.main h1 {
+.main-container h1 {
    color: #1F2532;
    font-size: 35px;
    font-weight: 400;
-   margin-bottom: 1rem;
+   margin-bottom: 25px;
 }
 
 .promo-bar-container {
-  position: relative;
-  /* background-color: #dcd5d9; */
-  /* width: 100vw; */
-  /* height: 7rem; */
-  margin-top: -50px;
-  /* border-radius: 15px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3); */
-
-  /* display: flex; */
-  /* justify-content: space-evenly; */
-  /* gap: 100px; */
-  /* align-items: center; */
+  display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .promo-bar {
-  background-color: white;
-  /* margin: 2rem; */
-  width: 70vw;
-  border-radius: 15px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  width: 75vw;
 }
 
 .promo-bar img {
@@ -68,7 +51,6 @@
   /* background-color: aqua; */
   display: flex; 
   /* margin: 2rem; */
-
 }
 
 .bar-item-container h4,
@@ -89,12 +71,13 @@
 .intro-container {
   display: flex;
   grid-template-columns: 50% 50%;
+  z-index: 1;
 }
 
 .left-side {
   background-color: #1F2532;
   width: 100vw;
-  height: 42rem;
+  height: 45rem;
   margin-top: -3.5rem;
   display: flex;
   align-items: center;
@@ -135,7 +118,7 @@
 .right-side {
   background-color: #dcd5d9;
   width: 100vw;
-  height: 42rem;
+  height: 45rem;
   margin-top: -3.5rem;
   display: flex;
   align-items: center;
@@ -145,7 +128,7 @@
 .img-container {
   /* background-color: #7d5569; */
   display: grid;
-  width: 45rem;
+  width: 40rem;
   margin-top: 5rem;
 }
 

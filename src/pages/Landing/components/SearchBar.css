@@ -1,8 +1,7 @@
 .search-bar {
-    width: 70vw;
+    width: 80vw;
     background-color: white;
     border-radius: 8px;
-    /* background-color: #EE002E; */
 }
 
 .search-btn {
@@ -11,7 +10,7 @@
     font-size: large;
     font-weight: 500;
     border-style: none;
-    border-radius: 8px;
+    border-radius: 6px;
     width: 100%;
     height: 3rem;
 }
@@ -21,11 +20,9 @@
 .equipments-container,
 .btn-container {
     border-radius: 6px;
-    /* background-color: #42c1a6; */
-    padding-top: 0.705rem;
-    padding-bottom: 0.705rem;
+    padding: 12px;
+    
 }
-
 #date-picker {
     height: 2.25rem;
 }

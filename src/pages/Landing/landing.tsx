@@ -17,20 +17,19 @@ import { Col, Row, Container } from "react-bootstrap";
 
 const Landing: React.FC = () => {
   return (
-    <Container fluid>
+    <Container fluid className="landing-container">
       <Row className="main">
-        <Col className="main-container">
-          <div>
+        <Col className="gx-0">
+          <div className="main-container">
             <h1>Let's Go Camping!</h1>
-            <div className="search-bar-container">
-              <SearchBar />
-            </div>
+            <SearchBar />
           </div>
         </Col>
       </Row>
-      <Row className="promo-bar-container">
-        <div className="promo-bar">
-          <Row>
+
+      <Row>
+        <Col className="promo-bar-container">
+          <Row className="promo-bar">
             <Col xs={12} md={12} lg={4} className="bar-item-container">
               <img src={campFireIcon} alt="" />
               <div className="text-container">
@@ -53,8 +52,9 @@ const Landing: React.FC = () => {
               </div>
             </Col>
           </Row>
-        </div>
+        </Col>
       </Row>
+
       <Row className="intro-container">
         <Col className="left-side">
           <div className="left-content">

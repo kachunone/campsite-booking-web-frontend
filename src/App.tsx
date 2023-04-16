@@ -5,13 +5,12 @@ import Booking from "./pages/Booking/booking";
 import NavLinks from "./shared/components/NavLinks";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import logo from "./logo.svg";
 import "./App.css";
 
 function App(): JSX.Element {
   return (
     <BrowserRouter>
-      {/* <NavLinks /> */}
+      <NavLinks />
       <Routes>
         <Route path="/landing" element={<Home />}></Route>
         <Route path="/choosing" element={<Choosing />}></Route>
