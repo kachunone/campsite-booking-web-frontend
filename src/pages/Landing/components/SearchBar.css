@@ -15,6 +15,12 @@
     height: 3rem;
 }
 
+.search-btn:hover {
+    background:  white;
+    color: #af3b52;
+    border: 2px solid #af3b52;
+}
+
 .check-in,
 .regions-container,
 .equipments-container,

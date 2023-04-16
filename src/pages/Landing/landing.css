@@ -112,7 +112,12 @@
   font-weight: 500;
   border-radius: 6px;
   border-style: none;
-  margin-top: 40px;
+  margin-top: 30px;
+}
+
+.left-content > button:hover {
+  background-color: white;
+  color: #af3b52;
 }
 
 .right-side {

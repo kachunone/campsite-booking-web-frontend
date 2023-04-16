@@ -66,7 +66,7 @@ const Landing: React.FC = () => {
               elit, sed do eiusmod tempor incididunt ut labore et dolore magna
               aliqua.
             </p>
-            <button className="start-btn">START</button>
+            <button>START</button>
           </div>
         </Col>
         <Col className="right-side">
