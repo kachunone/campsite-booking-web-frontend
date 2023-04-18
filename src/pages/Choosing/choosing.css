@@ -15,9 +15,6 @@
 .campsite-list-container {
     background-color: #efe1e8;
     border-radius: 8px;
-    display: grid;
-    justify-content: center;
-    align-items: center;
     margin-top: 20px;
     height: 78vh;
     overflow-y: scroll;

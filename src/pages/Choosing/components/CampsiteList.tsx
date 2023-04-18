@@ -3,24 +3,56 @@ import campfire from "../../../assets/images/landing-img/camping-fire.png";
 import "./CampsiteList.css";
 import { Col, Row, Card, ListGroup } from "react-bootstrap";
 
-const CampsiteList: React.FC = () => {
+interface Props {
+  campsiteList: {
+    id: number;
+    title: string;
+    description: string;
+    equipments: string[];
+    region: string;
+    price: number;
+  }[];
+}
+
+const CampsiteList: React.FC<Props> = (props) => {
   return (
     <Row className="gx-0">
-      {Array.from({ length: 9 }).map((_, idx) => (
-        <Col xs={12} sm={12} md={6} lg={4}>
-          <Card style={{ margin: "30px" }} bg="dark" text="light">
+      {props.campsiteList.map((campsite) => (
+        <Col xs={12} sm={12} md={6} lg={3}>
+          <Card style={{ margin: "10px" }} bg="dark" text="light">
             <Card.Img variant="top" src={campfire} />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+            <Card.Body style={{ height: "8rem" }}>
+              <Card.Title>{campsite.title}</Card.Title>
+              <Card.Text className="card-description">
+                {campsite.description}
               </Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
-              <ListGroup.Item>Cras justo odio</ListGroup.Item>
-              <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-              <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+              <ListGroup.Item>
+                <Card.Text>
+                  Region:{" "}
+                  <span style={{ fontWeight: "bold" }}>{campsite.region}</span>
+                </Card.Text>
+              </ListGroup.Item>
+              <ListGroup.Item style={{ height: "4rem" }}>
+                <Card.Text className="card-equipments">
+                  Equipments:{" "}
+                  <span style={{ fontWeight: "bold" }}>
+                    {campsite.equipments.join(", ")}
+                  </span>
+                </Card.Text>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Card.Text>
+                  Price:{" "}
+                  <span style={{ fontWeight: "bold", fontSize: "20px" }}>
+                    ${campsite.price}
+                  </span>
+                </Card.Text>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <button className="card-btn">DETAILS</button>
+              </ListGroup.Item>
             </ListGroup>
           </Card>
         </Col>
