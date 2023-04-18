@@ -1,11 +1,49 @@
-.choosing {
-    background: #153855;
+.choosing-page {
+    
+    background: #354057;
     height: 100vh;
-    display: grid;
-    /* align-items: center; */
-    justify-content: center;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.choosing-search-bar-container {
-    margin-top: 10vh;
+.search-bar-container {
+    margin-top: 5rem;
 }
+
+.campsite-list-container {
+    background-color: #efe1e8;
+    border-radius: 8px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    height: 78vh;
+    overflow-y: scroll;
+    width: 80vw;
+    /* margin-bottom: 20rem; */
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
