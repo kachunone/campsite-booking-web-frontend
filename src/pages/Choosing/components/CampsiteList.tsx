@@ -1,7 +1,8 @@
 import React from "react";
-import campfire from "../../../assets/images/landing-img/camping-fire.png";
+import campfire from "../../../assets/images/landing-img/camping-sunrise.jpg";
 import "./CampsiteList.css";
 import { Col, Row, Card, ListGroup } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   campsiteList: {
@@ -11,16 +12,23 @@ interface Props {
     equipments: string[];
     region: string;
     price: number;
+    image: string;
   }[];
 }
 
 const CampsiteList: React.FC<Props> = (props) => {
+  const navigate = useNavigate();
+
   return (
     <Row className="gx-0">
       {props.campsiteList.map((campsite) => (
-        <Col xs={12} sm={12} md={6} lg={3}>
-          <Card style={{ margin: "10px" }} bg="dark" text="light">
-            <Card.Img variant="top" src={campfire} />
+        <Col xs={8} sm={7} md={6} lg={5} xl={4} xxl={3}>
+          <Card
+            style={{ margin: "10px", borderStyle: "none", width: "18rem" }}
+            bg="dark"
+            text="light"
+          >
+            <Card.Img style={{ height: "12rem" }} src={campsite.image} />
             <Card.Body style={{ height: "8rem" }}>
               <Card.Title>{campsite.title}</Card.Title>
               <Card.Text className="card-description">
@@ -51,7 +59,16 @@ const CampsiteList: React.FC<Props> = (props) => {
                 </Card.Text>
               </ListGroup.Item>
               <ListGroup.Item>
-                <button className="card-btn">DETAILS</button>
+                <button
+                  className="card-btn"
+                  onClick={() => {
+                    navigate("/booking", {
+                      state: { campsite: campsite },
+                    });
+                  }}
+                >
+                  DETAILS
+                </button>
               </ListGroup.Item>
             </ListGroup>
           </Card>
