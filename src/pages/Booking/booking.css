@@ -1,6 +1,26 @@
 .booking {
-    height: 100vh;
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
+    background: #354057;
+    min-height: 100vh;
+}
+
+.book-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: larger;
+    background-color: #af3b52;
+    color: white;
+    font-weight: 500;
+    border-radius: 6px;
+    border-style: none;
+}
+
+.booking-img-container {
+    /* background: #000; */
+}
+
+.booking-card-container {
+    /* background: #df5c5c; */
 }

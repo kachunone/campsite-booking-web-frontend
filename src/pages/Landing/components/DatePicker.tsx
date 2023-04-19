@@ -22,6 +22,7 @@ const DayPicker: React.FC<DayPicker> = (props) => {
       minDate={new Date()}
       dateFormat="MMM dd, yyyy"
       placeholderText={"Select Start & End dates"}
+      // inline
     />
   );
 };

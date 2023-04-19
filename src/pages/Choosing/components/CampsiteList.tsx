@@ -3,6 +3,7 @@ import campfire from "../../../assets/images/landing-img/camping-sunrise.jpg";
 import "./CampsiteList.css";
 import { Col, Row, Card, ListGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { Display } from "react-bootstrap-icons";
 
 interface Props {
   campsiteList: {
@@ -20,15 +21,24 @@ const CampsiteList: React.FC<Props> = (props) => {
   const navigate = useNavigate();
 
   return (
-    <Row className="gx-0">
+    <Row>
       {props.campsiteList.map((campsite) => (
-        <Col xs={8} sm={7} md={6} lg={5} xl={4} xxl={3}>
+        <Col xs={12} sm={12} md={6} lg={6} xl={4} xxl={3}>
           <Card
-            style={{ margin: "10px", borderStyle: "none", width: "18rem" }}
+            style={{
+              borderStyle: "none",
+              margin: "8px",
+            }}
             bg="dark"
             text="light"
           >
-            <Card.Img style={{ height: "12rem" }} src={campsite.image} />
+            <Card.Img
+              style={{
+                height: "10rem",
+                objectFit: "cover",
+              }}
+              src={campsite.image}
+            />
             <Card.Body style={{ height: "8rem" }}>
               <Card.Title>{campsite.title}</Card.Title>
               <Card.Text className="card-description">
