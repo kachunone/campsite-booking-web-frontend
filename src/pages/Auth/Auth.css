@@ -1,5 +1,5 @@
 /* SignupPage styles */
-.signup-page {
+.auth-page {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,30 +7,30 @@
     background-color: #354057;
   }
   
-  .signup-page h1 {
+  .auth-page h1 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
   }
   
   /* SignupForm styles */
-  .signup-form {
+  .auth-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid #ccc;
+    border: none;
     padding: 2rem;
     border-radius: 5px;
     background-color: #f7f7f7;
     max-width: 400px; /* Added a max-width to the form container */
   }
   
-  .signup-form h2 {
+  .auth-form h2 {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
     text-align: center;
   }
   
-  .signup-form label {
+  .auth-form label {
     font-size: 1rem;
     /* margin-bottom: 0.5rem; */
     text-align: left;
@@ -38,9 +38,9 @@
     /* background-color: #0069d9; */
   }
   
-  .signup-form input[type="text"],
-  .signup-form input[type="email"],
-  .signup-form input[type="password"] {
+  .auth-form input[type="text"],
+  .auth-form input[type="email"],
+  .auth-form input[type="password"] {
     width: 100%;
     padding: 0.5rem;
     border-radius: 3px;
@@ -49,7 +49,7 @@
     font-size: 1rem;
   }
   
-  .signup-form button[type="submit"] {
+  .auth-form button[type="submit"] {
     cursor: pointer;
     margin-top: 1rem;
     width: 100%;
@@ -62,7 +62,7 @@
     border-style: none;
   }
   
-  .signup-form button[type="submit"]:hover {
+  .auth-form button[type="submit"]:hover {
     background-color: white;
     color: #af3b52;
   }

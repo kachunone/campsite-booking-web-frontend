@@ -27,11 +27,14 @@ const NavLinks: React.FC = () => {
             </Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link as={Link} to={"/login"}>
-              Login
+            <Nav.Link as={Link} to={"/auth"} state={{ isLoginMode: true }}>
+              Log in
             </Nav.Link>
-            <Nav.Link as={Link} to={"/signup"}>
-              Sign Up
+            <Nav.Link as={Link} to={"/auth"} state={{ isLoginMode: false }}>
+              Sign up
+            </Nav.Link>
+            <Nav.Link as={Link} to={"/record"}>
+              Booking
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

@@ -1,22 +1,23 @@
 import React, { useState } from "react";
-import "../Signup.css";
+import "../Auth.css";
 
 // Define the props for the SignupForm component
-interface SignupFormProps {
-  onSubmit: (formData: SignupFormData) => void;
+interface AuthFormProps {
+  onSubmit: (formData: AuthFormData) => void;
+  isLoginMode: boolean;
 }
 
 // Define the shape of the form data
-interface SignupFormData {
+interface AuthFormData {
   username: string;
   email: string;
   password: string;
 }
 
 // Define the SignupForm component
-const SignupForm: React.FC<SignupFormProps> = ({ onSubmit }) => {
+const AuthForm: React.FC<AuthFormProps> = ({ onSubmit, isLoginMode }) => {
   // Define state for the form data, initializing it with empty strings for each field
-  const [formData, setFormData] = useState<SignupFormData>({
+  const [formData, setFormData] = useState<AuthFormData>({
     username: "",
     email: "",
     password: "",
@@ -40,17 +41,20 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit }) => {
 
   // Render the form with input fields for each form field, a submit button, and event handlers for user input and submission
   return (
-    <form className="signup-form" onSubmit={handleSubmit}>
-      <h2>Create account</h2>
-      <label>
-        Username:
-        <input
-          type="text"
-          name="username"
-          value={formData.username}
-          onChange={handleInputChange}
-        />
-      </label>
+    <form className="auth-form" onSubmit={handleSubmit}>
+      {!isLoginMode && <h2>Create account</h2>}
+      {isLoginMode && <h2>Sign in</h2>}
+      {!isLoginMode && (
+        <label>
+          Username:
+          <input
+            type="text"
+            name="username"
+            value={formData.username}
+            onChange={handleInputChange}
+          />
+        </label>
+      )}
       <label>
         Email:
         <input
@@ -69,10 +73,11 @@ const SignupForm: React.FC<SignupFormProps> = ({ onSubmit }) => {
           onChange={handleInputChange}
         />
       </label>
-      <button type="submit">Sign Up</button>
+      {!isLoginMode && <button type="submit">Sign Up</button>}
+      {isLoginMode && <button type="submit">Sign In</button>}
     </form>
   );
 };
 
 // Export the SignupForm component
-export default SignupForm;
+export default AuthForm;
