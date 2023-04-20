@@ -3,7 +3,6 @@ import "./booking.css";
 import { useLocation } from "react-router-dom";
 import DayPicker from "../Landing/components/DatePicker";
 import { Col, Row, Card, ListGroup, Container, Button } from "react-bootstrap";
-import DatePicker from "react-datepicker";
 
 interface Campsite {
   id: number;
@@ -30,47 +29,22 @@ const Booking: React.FC = () => {
 
   return (
     <Container fluid className="booking">
-      <Row
-        style={{
-          width: "80vw",
-          backgroundColor: "#efe1e8",
-          display: "flex",
-          justifyContent: "center",
-          alignContent: "center",
-          rowGap: "1rem",
-          paddingTop: "0.6rem",
-          paddingBottom: "0.6rem",
-          marginTop: "5rem",
-          marginBottom: "2rem",
-          borderRadius: "8px",
-        }}
-      >
-        <Col
-          xs={12}
-          sm={12}
-          md={12}
-          lg={6}
-          xl={6}
-          xxl={6}
-          className="booking-img-container"
-        >
+      <Row className="detail-card-container" style={{ marginTop: "5rem" }}>
+        <Col xs={12} sm={12} md={12} lg={6} xl={6} xxl={6}>
           <Card.Img
             style={{
               borderRadius: "5px",
               height: "100%",
-              // maxHeight: "500px",
               objectFit: "cover",
             }}
             src={campsiteInfo.image}
           />
         </Col>
-        <Col className="booking-card-container">
+        <Col>
           <Card
             style={{
               borderStyle: "none",
               height: "100%",
-              // minHeight: "10rem",
-              // borderRadius: "20px",
             }}
             bg="dark"
             text="light"

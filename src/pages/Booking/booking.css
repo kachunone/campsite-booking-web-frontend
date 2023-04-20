@@ -17,10 +17,15 @@
     border-style: none;
 }
 
-.booking-img-container {
-    /* background: #000; */
-}
-
-.booking-card-container {
-    /* background: #df5c5c; */
+.detail-card-container {
+    display: "flex";
+    justify-content: "center";
+    align-items: "center";
+    width: 80vw;
+    background-color: #efe1e8;
+    row-gap: 1rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
 }
