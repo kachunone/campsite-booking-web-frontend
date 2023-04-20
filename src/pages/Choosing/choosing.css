@@ -11,7 +11,8 @@
 }
 
 .campsite-list-container {
-    background-color: #efe1e8;
+    background: #F0E0E8;
+    
     border-radius: 8px;
     margin-top: 20px;
     /* height: 78vh; */
