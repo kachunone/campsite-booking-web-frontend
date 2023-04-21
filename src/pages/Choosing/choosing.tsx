@@ -96,8 +96,6 @@ const campsiteList = [
 ];
 
 const Choosing: React.FC = () => {
-  const location = useLocation();
-
   return (
     <Container fluid>
       <Row>

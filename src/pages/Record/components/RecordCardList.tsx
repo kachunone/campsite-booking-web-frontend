@@ -1,4 +1,6 @@
 import React, { FC } from "react";
+import { Col, Row } from "react-bootstrap";
+import styles from "./RecordCardList.module.css";
 
 interface Props<T> {
   keyField: keyof T;
@@ -8,11 +10,11 @@ interface Props<T> {
 
 const List: FC<Props<any>> = ({ items, renderItem, keyField }) => {
   return (
-    <div>
+    <Col className={styles.listContainer}>
       {items.map((item) => (
         <React.Fragment key={item[keyField]}>{renderItem(item)}</React.Fragment>
       ))}
-    </div>
+    </Col>
   );
 };
 
