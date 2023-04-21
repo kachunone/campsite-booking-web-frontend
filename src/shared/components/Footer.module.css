@@ -1,0 +1,15 @@
+.footer {
+    background: #212529;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+}
+
+.p {
+    color: white;
+    /* background: #d78989; */
+    font-weight: 500;
+    font-size: large;
+    margin: 0;
+}
