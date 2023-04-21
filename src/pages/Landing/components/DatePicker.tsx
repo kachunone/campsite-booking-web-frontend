@@ -1,16 +1,16 @@
-import React, { ReactElement, useState } from "react";
+import React from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "./DatePicker.css";
 
-interface DayPicker {
+interface DayPickerProps {
   startDate: Date | null;
   endDate: Date | null;
   onChangeHander: (dates: [Date, Date]) => void;
 }
 
-const DayPicker: React.FC<DayPicker> = (props) => {
+const DayPicker: React.FC<DayPickerProps> = (props) => {
   return (
     <DatePicker
       id="date-picker"
@@ -21,7 +21,7 @@ const DayPicker: React.FC<DayPicker> = (props) => {
       selectsRange={true}
       minDate={new Date()}
       dateFormat="MMM dd, yyyy"
-      placeholderText={"Select Start & End dates"}
+      placeholderText={"Check-in and Check-out dates"}
       // inline
     />
   );

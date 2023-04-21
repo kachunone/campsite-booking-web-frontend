@@ -1,10 +1,10 @@
-import React, { Fragment, ReactElement, useState } from "react";
+import React, { ReactElement, useState } from "react";
 import "./SearchBar.css";
 import DropDown from "./Dropdown";
 import DayPicker from "./DatePicker";
 import { useNavigate } from "react-router-dom";
 import { GeoAltFill, XDiamondFill } from "react-bootstrap-icons";
-import { Col, Row, Container } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 
 const dropDownEquipment = {
   defaultSelected: "Equipments",

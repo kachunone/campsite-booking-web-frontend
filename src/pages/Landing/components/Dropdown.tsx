@@ -1,7 +1,6 @@
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import "./Dropdown.css";
-import { JsxElement } from "typescript";
 
 interface DropDownProps {
   options: string[];

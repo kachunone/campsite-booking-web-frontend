@@ -1,5 +1,4 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 import "./choosing.css";
 import SearchBar from "../Landing/components/SearchBar";
 import Campsite from "./components/Campsite";
@@ -22,7 +21,7 @@ const campsites: CampsiteType[] = [
     id: 1,
     title: "Campsite 1",
     description: "A beautiful campsite surrounded by nature.",
-    equipments: ["Tent", "Sleeping Bag", "Campfire Grill", "Flashlight"],
+    equipments: ["Equipments", "Singe tent", "3 tents", "Trailer up to 18ft"],
     region: "Pacific Northwest",
     price: 75,
     image:
@@ -32,7 +31,7 @@ const campsites: CampsiteType[] = [
     id: 2,
     title: "Campsite 2",
     description: "An adventure awaits you at this remote campsite.",
-    equipments: ["RV", "Propane Stove", "Fishing Gear", "Hiking Boots"],
+    equipments: ["Equipments", "Singe tent", "3 tents", "Trailer up to 18ft"],
     region: "Rocky Mountains",
     price: 100,
     image:
@@ -42,7 +41,7 @@ const campsites: CampsiteType[] = [
     id: 3,
     title: "Campsite 3",
     description: "Relax and unwind at this serene campsite.",
-    equipments: ["Hammock", "Picnic Table", "Bug Spray", "Sunscreen"],
+    equipments: ["Equipments", "Singe tent", "3 tents", "Trailer up to 18ft"],
     region: "Southeast",
     price: 50,
     image:
@@ -52,7 +51,7 @@ const campsites: CampsiteType[] = [
     id: 4,
     title: "Campsite 1",
     description: "A beautiful campsite surrounded by nature.",
-    equipments: ["Tent", "Sleeping Bag", "Campfire Grill", "Flashlight"],
+    equipments: ["Equipments", "Singe tent", "3 tents", "Trailer up to 18ft"],
     region: "Pacific Northwest",
     price: 75,
     image:
@@ -62,7 +61,7 @@ const campsites: CampsiteType[] = [
     id: 5,
     title: "Campsite 2",
     description: "An adventure awaits you at this remote campsite.",
-    equipments: ["RV", "Propane Stove", "Fishing Gear", "Hiking Boots"],
+    equipments: ["Equipments", "Singe tent", "3 tents", "Trailer up to 18ft"],
     region: "Rocky Mountains",
     price: 100,
     image:
@@ -72,7 +71,7 @@ const campsites: CampsiteType[] = [
     id: 6,
     title: "Campsite 3",
     description: "Relax and unwind at this serene campsite.",
-    equipments: ["Hammock", "Picnic Table", "Bug Spray", "Sunscreen"],
+    equipments: ["Equipments", "Singe tent", "3 tents", "Trailer up to 18ft"],
     region: "Southeast",
     price: 50,
     image:
@@ -82,7 +81,7 @@ const campsites: CampsiteType[] = [
     id: 7,
     title: "Campsite 1",
     description: "A beautiful campsite surrounded by nature.",
-    equipments: ["Tent", "Sleeping Bag", "Campfire Grill", "Flashlight"],
+    equipments: ["Equipments", "Singe tent", "3 tents", "Trailer up to 18ft"],
     region: "Pacific Northwest",
     price: 75,
     image:
@@ -92,7 +91,7 @@ const campsites: CampsiteType[] = [
     id: 8,
     title: "Campsite 2",
     description: "An adventure awaits you at this remote campsite.",
-    equipments: ["RV", "Propane Stove", "Fishing Gear", "Hiking Boots"],
+    equipments: ["Equipments", "Singe tent", "3 tents", "Trailer up to 18ft"],
     region: "Rocky Mountains",
     price: 100,
     image:
@@ -102,7 +101,7 @@ const campsites: CampsiteType[] = [
     id: 9,
     title: "Campsite 3",
     description: "Relax and unwind at this serene campsite.",
-    equipments: ["Hammock", "Picnic Table", "Bug Spray", "Sunscreen"],
+    equipments: ["Equipments", "Singe tent", "3 tents", "Trailer up to 18ft"],
     region: "Southeast",
     price: 50,
     image:
@@ -112,7 +111,7 @@ const campsites: CampsiteType[] = [
     id: 10,
     title: "Campsite 1",
     description: "A beautiful campsite surrounded by nature.",
-    equipments: ["Tent", "Sleeping Bag", "Campfire Grill", "Flashlight"],
+    equipments: ["Equipments", "Singe tent", "3 tents", "Trailer up to 18ft"],
     region: "Pacific Northwest",
     price: 75,
     image:
@@ -122,7 +121,7 @@ const campsites: CampsiteType[] = [
     id: 11,
     title: "Campsite 2",
     description: "An adventure awaits you at this remote campsite.",
-    equipments: ["RV", "Propane Stove", "Fishing Gear", "Hiking Boots"],
+    equipments: ["Equipments", "Singe tent", "3 tents", "Trailer up to 18ft"],
     region: "Rocky Mountains",
     price: 100,
     image:
@@ -132,7 +131,7 @@ const campsites: CampsiteType[] = [
     id: 12,
     title: "Campsite 3",
     description: "Relax and unwind at this serene campsite.",
-    equipments: ["Hammock", "Picnic Table", "Bug Spray", "Sunscreen"],
+    equipments: ["Equipments", "Singe tent", "3 tents", "Trailer up to 18ft"],
     region: "Southeast",
     price: 50,
     image:
