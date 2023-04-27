@@ -1,36 +1,33 @@
 .search-bar {
-    width: 80vw;
-    background-color: white;
-    border-radius: 8px;
+  /* width: 85vw; */
+  background-color: white;
+  border-radius: 8px;
 }
 
 .search-btn {
-    background-color: #af3b52;
-    color: white;
-    font-size: large;
-    font-weight: 500;
-    border-style: none;
-    border-radius: 6px;
-    width: 100%;
-    height: 3rem;
+  background-color: #af3b52;
+  color: white;
+  font-size: large;
+  font-weight: 500;
+  border-style: none;
+  border-radius: 6px;
+  width: 100%;
+  height: 3rem;
 }
 
 .search-btn:hover {
-    background:  white;
-    color: #af3b52;
-    border: 2px solid #af3b52;
+  background: white;
+  color: #af3b52;
+  border: 2px solid #af3b52;
 }
 
 .check-in,
 .regions-container,
 .equipments-container,
 .btn-container {
-    border-radius: 6px;
-    padding: 12px;
-    
+  border-radius: 6px;
+  padding: 12px;
 }
 #date-picker {
-    height: 2.25rem;
+  height: 2.25rem;
 }
-
-

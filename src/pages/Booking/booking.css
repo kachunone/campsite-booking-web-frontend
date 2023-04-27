@@ -1,32 +1,30 @@
 .booking {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #354057;
-    min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #354057;
+  min-height: 100vh;
 }
 
 .book-btn {
-    width: 100%;
-    padding: 10px;
-    font-size: larger;
-    background-color: #af3b52;
-    color: white;
-    font-weight: 500;
-    border-radius: 6px;
-    border-style: none;
+  width: 100%;
+  padding: 10px;
+  font-size: larger;
+  background-color: #af3b52;
+  color: white;
+  font-weight: 500;
+  border-radius: 6px;
+  border-style: none;
 }
 
 .detail-card-container {
-    display: "flex";
-    justify-content: "center";
-    align-items: "center";
-    width: 80vw;
-    background-color: #efe1e8;
-    row-gap: 1rem;
-    padding-top: 0.6rem;
-    padding-bottom: 0.6rem;
-    margin-top: 5rem;
-    margin-bottom: 2rem;
-    border-radius: 8px;
+  width: 80vw;
+  max-width: 40rem;
+  background-color: #efe1e8;
+  row-gap: 1rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
 }

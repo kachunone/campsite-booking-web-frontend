@@ -22,38 +22,38 @@ const Landing: React.FC = () => {
         <Col className="gx-0">
           <div className="main-container">
             <h1>Let's Go Camping!</h1>
-            <SearchBar />
+            <div className="searchBarContainer">
+              <SearchBar />
+            </div>
           </div>
         </Col>
       </Row>
 
-      <Row>
-        <Col className="promo-bar-container">
-          <Row className="promo-bar">
-            <Col xs={12} md={12} lg={4} className="bar-item-container">
-              <img src={campFireIcon} alt="" />
-              <div className="text-container">
-                <h4>3500+</h4>
-                <p>Campgrounds</p>
-              </div>
-            </Col>
-            <Col xs={12} md={12} lg={4} className="bar-item-container">
-              <img src={mapIcon} alt="" />
-              <div className="text-container">
-                <h4>57</h4>
-                <p>Countries/States</p>
-              </div>
-            </Col>
-            <Col xs={12} md={12} lg={4} className="bar-item-container">
-              <img src={backpackIcon} alt="" />
-              <div className="text-container">
-                <h4>Countless</h4>
-                <p>Happy campers</p>
-              </div>
-            </Col>
-          </Row>
-        </Col>
-      </Row>
+      <div className="promo-bar-container">
+        <Row className="promo-bar">
+          <Col xs={12} md={12} lg={4} className="bar-item-container">
+            <img src={campFireIcon} alt="" />
+            <div className="text-container">
+              <h4>3500+</h4>
+              <p>Campgrounds</p>
+            </div>
+          </Col>
+          <Col xs={12} md={12} lg={4} className="bar-item-container">
+            <img src={mapIcon} alt="" />
+            <div className="text-container">
+              <h4>57</h4>
+              <p>Countries/States</p>
+            </div>
+          </Col>
+          <Col xs={12} md={12} lg={4} className="bar-item-container">
+            <img src={backpackIcon} alt="" />
+            <div className="text-container">
+              <h4>Countless</h4>
+              <p>Happy campers</p>
+            </div>
+          </Col>
+        </Row>
+      </div>
 
       <Row className="intro-container">
         <Col className="left-side">

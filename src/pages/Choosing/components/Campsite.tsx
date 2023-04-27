@@ -1,10 +1,9 @@
 import React from "react";
-import campfire from "../../../assets/images/landing-img/camping-sunrise.jpg";
 import styles from "./Campsite.module.css";
-import { Col, Row, Card, ListGroup } from "react-bootstrap";
+import { Card, ListGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-interface Campsite {
+interface CampsiteProps {
   id: number;
   title: string;
   description: string;
@@ -14,7 +13,7 @@ interface Campsite {
   image: string;
 }
 
-const Campsite: React.FC<Campsite> = (campsite) => {
+const Campsite: React.FC<CampsiteProps> = (campsite) => {
   const navigate = useNavigate();
 
   return (

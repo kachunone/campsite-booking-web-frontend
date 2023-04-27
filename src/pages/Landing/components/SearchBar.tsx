@@ -64,7 +64,15 @@ const SearchBar: React.FC = () => {
 
   return (
     <Row className="search-bar">
-      <Col xs={12} md={6} lg={3} className="equipments-container">
+      <Col
+        xs={12}
+        sm={12}
+        md={6}
+        lg={6}
+        xl={6}
+        xxl={3}
+        className="equipments-container"
+      >
         <DropDown
           options={dropDownEquipment.options}
           cb={handleSelectEquipment}
@@ -72,7 +80,15 @@ const SearchBar: React.FC = () => {
           icon={equipmentIcon}
         />
       </Col>
-      <Col xs={12} md={6} lg={3} className="regions-container">
+      <Col
+        xs={12}
+        sm={12}
+        md={6}
+        lg={6}
+        xl={6}
+        xxl={3}
+        className="regions-container"
+      >
         <DropDown
           options={dropDownRegion.options}
           cb={handleSelectRegion}
@@ -80,14 +96,22 @@ const SearchBar: React.FC = () => {
           icon={regionIcon}
         />
       </Col>
-      <Col xs={12} md={12} lg={4} className="check-in">
+      <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={4} className="check-in">
         <DayPicker
           startDate={startDate}
           endDate={endDate}
           onChangeHander={onChangeDates}
         />
       </Col>
-      <Col xs={12} md={12} lg={2} className="btn-container">
+      <Col
+        xs={12}
+        sm={12}
+        md={12}
+        lg={12}
+        xl={12}
+        xxl={2}
+        className="btn-container"
+      >
         <button className="search-btn" onClick={btnPressed}>
           SEARCH
         </button>

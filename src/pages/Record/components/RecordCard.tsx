@@ -23,8 +23,8 @@ const RecordCard: React.FC<RecordCardProps> = (props) => {
           sm={12}
           md={12}
           lg={12}
-          xl={3}
-          xxl={3}
+          xl={7}
+          xxl={7}
           className={styles.imgContainer}
         >
           <Card.Img
@@ -37,38 +37,32 @@ const RecordCard: React.FC<RecordCardProps> = (props) => {
         <Col
           xs={12}
           sm={12}
-          md={12}
-          lg={9}
-          xl={6}
-          xxl={6}
+          md={6}
+          lg={6}
+          xl={3}
+          xxl={3}
           className={styles.cardInfo}
         >
-          <p className={styles.p}>
-            <span className={styles.span}>Booking Date: </span>
-            {props.bookingDate.toLocaleDateString()}
-          </p>
-          <p className={styles.p}>
-            <span className={styles.span}>Customer Name: </span>
-            {props.customerName}
-          </p>
-          <p className={styles.p}>
-            <span className={styles.span}>Customer Email: </span>
-            {props.customerEmail}
-          </p>
-          <p className={styles.p}>
-            <span className={styles.span}>Check In: </span>2023-04-22
-          </p>
-          <p className={styles.p}>
-            <span className={styles.span}>Check out: </span>2023-04-22
-          </p>
+          <>
+            <p className={styles.p}>Booking Date: </p>
+            <span>{props.bookingDate.toLocaleDateString()}</span>
+          </>
+          <>
+            <p className={styles.p}>Check In: </p>
+            <span>2023-04-22</span>
+          </>
+          <>
+            <p className={styles.p}>Check out: </p>
+            <span>2023-04-22</span>
+          </>
         </Col>
         <Col
           xs={12}
           sm={12}
-          md={12}
-          lg={3}
-          xl={3}
-          xxl={3}
+          md={6}
+          lg={6}
+          xl={2}
+          xxl={2}
           className={styles.cardBtnContainer}
         >
           <button className={styles.button}>Update</button>

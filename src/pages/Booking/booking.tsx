@@ -30,7 +30,7 @@ const Booking: React.FC = () => {
   return (
     <Container fluid className="booking">
       <Row className="detail-card-container" style={{ marginTop: "5rem" }}>
-        <Col xs={12} sm={12} md={12} lg={12} xl={6} xxl={5}>
+        <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>
           <Card.Img
             style={{
               borderRadius: "5px",

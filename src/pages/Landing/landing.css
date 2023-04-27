@@ -3,17 +3,16 @@
 .landing-container h2,
 .landing-container h3,
 .landing-container h4,
-.landing-container h5
-{
+.landing-container h5 {
   font-family: "rubik", Arial, Helvetica, sans-serif;
 }
 
 .main {
-    background-image: url("../../assets/images/landing-img/img-bg.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 45rem;
+  background-image: url("../../assets/images/landing-img/img-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 45rem;
 }
 
 .main-container {
@@ -26,20 +25,33 @@
 }
 
 .main-container h1 {
-   color: #1F2532;
-   font-size: 35px;
-   font-weight: 400;
-   margin-bottom: 25px;
+  color: #1f2532;
+  font-size: 35px;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.searchBarContainer {
+  background-color: #af3b52;
+  width: 80vw;
+  max-width: 55rem;
 }
 
 .promo-bar-container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background-color: #869fd5; */
+  /* width: 50vw; */
+  margin-top: -3.5rem;
+  margin-bottom: -3.5rem;
 }
 
 .promo-bar {
-  width: 75vw;
+  width: 70vw;
+  background-color: white;
+  border-radius: 8px;
 }
 
 .promo-bar img {
@@ -49,7 +61,7 @@
 
 .bar-item-container {
   /* background-color: aqua; */
-  display: flex; 
+  display: flex;
   /* margin: 2rem; */
 }
 
@@ -62,7 +74,7 @@
 .text-container {
   display: flex;
   flex-direction: column;
-  align-items:flex-start;
+  align-items: flex-start;
   justify-content: center;
   width: 100%;
   height: 100%;
@@ -75,7 +87,7 @@
 }
 
 .left-side {
-  background-color: #1F2532;
+  background-color: #1f2532;
   width: 100vw;
   height: 45rem;
   margin-top: -3.5rem;
@@ -85,7 +97,7 @@
 }
 
 .left-content {
-  margin-top: 6.5rem
+  margin-top: 6.5rem;
 }
 
 .left-content > h2 {
@@ -122,9 +134,8 @@
 
 .right-side {
   background-color: #dcd5d9;
-  width: 100vw;
-  height: 45rem;
-  margin-top: -3.5rem;
+  /* width: 100vw; */
+  /* height: 45rem; */
   display: flex;
   align-items: center;
   justify-content: center;
