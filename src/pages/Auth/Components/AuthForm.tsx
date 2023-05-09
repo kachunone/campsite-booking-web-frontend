@@ -3,13 +3,13 @@ import "../Auth.css";
 
 // Define the props for the SignupForm component
 interface AuthFormProps {
-  onSubmit: (formData: AuthFormData) => void;
+  onSubmit: (formData: AuthFormData, isLoginMode: boolean) => void;
   isLoginMode: boolean;
 }
 
 // Define the shape of the form data
 interface AuthFormData {
-  username: string;
+  name: string;
   email: string;
   password: string;
 }
@@ -18,7 +18,7 @@ interface AuthFormData {
 const AuthForm: React.FC<AuthFormProps> = ({ onSubmit, isLoginMode }) => {
   // Define state for the form data, initializing it with empty strings for each field
   const [formData, setFormData] = useState<AuthFormData>({
-    username: "",
+    name: "",
     email: "",
     password: "",
   });
@@ -36,7 +36,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ onSubmit, isLoginMode }) => {
     // Prevent the default form submission behavior
     event.preventDefault();
     // Call the onSubmit function passed in as a prop, passing in the form data as an argument
-    onSubmit(formData);
+    onSubmit(formData, isLoginMode);
   };
 
   // Render the form with input fields for each form field, a submit button, and event handlers for user input and submission
@@ -49,8 +49,8 @@ const AuthForm: React.FC<AuthFormProps> = ({ onSubmit, isLoginMode }) => {
           Username:
           <input
             type="text"
-            name="username"
-            value={formData.username}
+            name="name"
+            value={formData.name}
             onChange={handleInputChange}
           />
         </label>

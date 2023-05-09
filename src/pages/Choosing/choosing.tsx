@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./choosing.css";
 import SearchBar from "../Landing/components/SearchBar";
 import Campsite from "./components/Campsite";
