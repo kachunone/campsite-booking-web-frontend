@@ -11,24 +11,24 @@ interface RecordCardProps {
 }
 
 const bookings: RecordCardProps[] = [
-  {
-    bookingId: "1234",
-    bookingDate: new Date("2023-04-23"),
-    customerName: "John Doe",
-    customerEmail: "johndoe@example.com",
-  },
-  {
-    bookingId: "5678",
-    bookingDate: new Date("2023-04-24"),
-    customerName: "Jane Smith",
-    customerEmail: "janesmith@example.com",
-  },
-  {
-    bookingId: "9012",
-    bookingDate: new Date("2023-04-25"),
-    customerName: "Bob Johnson",
-    customerEmail: "bobjohnson@example.com",
-  },
+  // {
+  //   bookingId: "1234",
+  //   bookingDate: new Date("2023-04-23"),
+  //   customerName: "John Doe",
+  //   customerEmail: "johndoe@example.com",
+  // },
+  // {
+  //   bookingId: "5678",
+  //   bookingDate: new Date("2023-04-24"),
+  //   customerName: "Jane Smith",
+  //   customerEmail: "janesmith@example.com",
+  // },
+  // {
+  //   bookingId: "9012",
+  //   bookingDate: new Date("2023-04-25"),
+  //   customerName: "Bob Johnson",
+  //   customerEmail: "bobjohnson@example.com",
+  // },
 ];
 
 const renderCard = (booking: RecordCardProps) => {

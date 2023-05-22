@@ -9,6 +9,13 @@ import { AuthContext } from "../contexts/auth-context";
 const NavLinks: React.FC = () => {
   const auth = useContext(AuthContext);
 
+  const logoutBtnPressed = () => {
+    const confirmLogout = window.confirm("Are you sure you want to log out?");
+    if (confirmLogout) {
+      auth.logout();
+    }
+  };
+
   return (
     <Navbar
       collapseOnSelect
@@ -18,7 +25,7 @@ const NavLinks: React.FC = () => {
       fixed="top"
     >
       <Container>
-        <Navbar.Brand href="#home">Campscape</Navbar.Brand>
+        <Navbar.Brand>Campscape</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -32,7 +39,7 @@ const NavLinks: React.FC = () => {
           <Nav>
             {!auth.isLoggedIn && (
               <Nav.Link as={Link} to={"/auth"} state={{ isLoginMode: true }}>
-                Log in
+                Login
               </Nav.Link>
             )}
             {!auth.isLoggedIn && (
@@ -43,6 +50,16 @@ const NavLinks: React.FC = () => {
             {auth.isLoggedIn && (
               <Nav.Link as={Link} to={"/record"}>
                 Booking
+              </Nav.Link>
+            )}
+            {auth.isLoggedIn && (
+              <Nav.Link
+                as={Link}
+                to={"/landing"}
+                onClick={logoutBtnPressed}
+                style={{ color: "red" }}
+              >
+                Logout
               </Nav.Link>
             )}
           </Nav>

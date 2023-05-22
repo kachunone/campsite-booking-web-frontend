@@ -1,22 +1,39 @@
-import React, { useState, useEffect, ChangeEvent } from "react";
+import React, { useState, useEffect, ChangeEvent, useContext } from "react";
 import "./booking.css";
 import { useLocation } from "react-router-dom";
 import DayPicker from "../Landing/components/DatePicker";
 import { Col, Row, Card, ListGroup, Container, Button } from "react-bootstrap";
+import ApiService from "../../shared/services/ApiService";
+
+const SERVER_ENDPOINT = "http://localhost:8080/";
 
 interface Campsite {
-  id: number;
+  _id: string;
   title: string;
   description: string;
   equipments: string[];
   region: string;
   price: number;
   image: string;
+  bookings: { start: Date; end: Date }[];
+}
+
+interface BookingData {
+  campsiteId: string;
+  start: Date;
+  end: Date;
 }
 
 const Booking: React.FC = () => {
   const { state } = useLocation();
   const campsiteInfo: Campsite = state.campsite;
+
+  const campsiteBookedDates = campsiteInfo.bookings.map((booking) => {
+    return {
+      start: new Date(booking.start),
+      end: new Date(booking.end),
+    };
+  });
 
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
@@ -25,6 +42,29 @@ const Booking: React.FC = () => {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
+  };
+
+  const bookBtnHandler = async () => {
+    if (startDate === null || endDate === null) {
+      return alert("Please select Dates before submit your booking.");
+    }
+
+    const booking: BookingData = {
+      campsiteId: campsiteInfo._id,
+      start: startDate,
+      end: endDate,
+    };
+
+    try {
+      const response = await ApiService.createBooking(booking);
+      if (response.status === 201) {
+        alert("Your booking is comfirmed");
+      } else {
+        alert("You booking cannot be processed!");
+      }
+    } catch (error) {
+      console.error("Error fetching:", error);
+    }
   };
 
   return (
@@ -37,7 +77,7 @@ const Booking: React.FC = () => {
               height: "100%",
               objectFit: "cover",
             }}
-            src={campsiteInfo.image}
+            src={`${SERVER_ENDPOINT}${campsiteInfo.image}`}
           />
         </Col>
         <Col>
@@ -85,10 +125,13 @@ const Booking: React.FC = () => {
                       startDate={startDate}
                       endDate={endDate}
                       onChangeHander={onChangeDates}
+                      excludeDateIntervals={campsiteBookedDates}
                     />
                   </Col>
                   <Col xs={12} sm={12} md={6} lg={6} xl={6} xxl={6}>
-                    <button className="book-btn">Book</button>
+                    <button className="book-btn" onClick={bookBtnHandler}>
+                      Book
+                    </button>
                   </Col>
                 </Row>
               </ListGroup.Item>

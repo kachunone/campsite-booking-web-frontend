@@ -3,19 +3,21 @@ import styles from "./Campsite.module.css";
 import { Card, ListGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
+const SERVER_ENDPOINT = "http://localhost:8080/";
+
 interface CampsiteProps {
-  id: number;
+  _id: string;
   title: string;
   description: string;
   equipments: string[];
   region: string;
   price: number;
   image: string;
+  bookings: Object[];
 }
 
 const Campsite: React.FC<CampsiteProps> = (campsite) => {
   const navigate = useNavigate();
-
   return (
     <Card
       style={{
@@ -30,7 +32,7 @@ const Campsite: React.FC<CampsiteProps> = (campsite) => {
           height: "10rem",
           objectFit: "cover",
         }}
-        src={campsite.image}
+        src={`${SERVER_ENDPOINT}${campsite.image}`}
       />
       <Card.Body style={{ height: "8rem" }}>
         <Card.Title>{campsite.title}</Card.Title>

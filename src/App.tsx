@@ -7,7 +7,7 @@ import Footer from "./shared/components/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Auth from "./pages/Auth/Auth";
 import { AuthContext } from "./shared/contexts/auth-context";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Record from "./pages/Record/record";
 
 import "./App.css";
@@ -15,12 +15,27 @@ import "./App.css";
 function App(): JSX.Element {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  useEffect(() => {
+    const handleBeforeUnload = (event: BeforeUnloadEvent) => {
+      // Cancel the event
+      event.preventDefault();
+      return (event.returnValue = "Are you sure you want to leave this site?");
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
+
   const loginHandler = () => {
     setIsLoggedIn(true);
   };
 
   const logoutHandler = () => {
     setIsLoggedIn(false);
+    sessionStorage.removeItem("token");
   };
 
   const contextValue = {

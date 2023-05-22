@@ -8,6 +8,7 @@ interface DayPickerProps {
   startDate: Date | null;
   endDate: Date | null;
   onChangeHander: (dates: [Date, Date]) => void;
+  excludeDateIntervals: { start: Date; end: Date }[];
 }
 
 const DayPicker: React.FC<DayPickerProps> = (props) => {
@@ -22,6 +23,7 @@ const DayPicker: React.FC<DayPickerProps> = (props) => {
       minDate={new Date()}
       dateFormat="MMM dd, yyyy"
       placeholderText={"Check-in and Check-out dates"}
+      excludeDateIntervals={props.excludeDateIntervals}
       // inline
     />
   );

@@ -101,6 +101,7 @@ const SearchBar: React.FC = () => {
           startDate={startDate}
           endDate={endDate}
           onChangeHander={onChangeDates}
+          excludeDateIntervals={[]}
         />
       </Col>
       <Col

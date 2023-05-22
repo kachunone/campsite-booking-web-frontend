@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import AuthForm from "./Components/AuthForm";
 import "./Auth.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, Navigate } from "react-router-dom";
 import { AuthContext } from "../../shared/contexts/auth-context";
 import { useNavigate } from "react-router-dom";
 
 const Auth: React.FC = () => {
-  const { state } = useLocation();
-  const isLoginMode = state.isLoginMode;
   const auth = useContext(AuthContext);
+  const { state } = useLocation();
   const navigate = useNavigate();
+  const isLoginMode = state.isLoginMode;
 
   const handleSubmit = async (formData: any, isLoginMode: boolean) => {
     if (!formData.email || !formData.password) {
@@ -34,10 +34,11 @@ const Auth: React.FC = () => {
       const { token } = await response.json();
       sessionStorage.setItem("token", token);
       auth.login();
-      navigate("/choosing");
+      navigate("/choosing", { replace: true });
     } else if (response.status === 201) {
       navigate("/auth", {
         state: { isLoginMode: true },
+        replace: true,
       });
       alert("Account Created!");
     } else {
