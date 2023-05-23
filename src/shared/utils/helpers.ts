@@ -36,9 +36,8 @@ export function filter(
       start === null ||
       end === null ||
       campsite.bookings.every((booking) => {
-        return (
-          (start >= booking.end || end <= booking.start) &&
-          (end <= booking.start || start >= booking.end)
+        return !(
+          start <= new Date(booking.end) && new Date(booking.start) <= end
         );
       });
 
