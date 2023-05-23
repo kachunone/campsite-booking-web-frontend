@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Fragment, useState } from "react";
+import React, { ChangeEvent, Fragment, useEffect, useState } from "react";
 import "./landing.css";
 import { Link } from "react-router-dom";
 import camp1 from "../../assets/images/landing-img/camping-01.png";
@@ -16,6 +16,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Col, Row, Container } from "react-bootstrap";
 
 const Landing: React.FC = () => {
+  useEffect(() => {
+    console.log("landing render!");
+  }, []);
+
   return (
     <Container fluid className="landing-container">
       <Row className="main">

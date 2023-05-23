@@ -24,7 +24,18 @@ interface SearchBarProps {
 
 const dropDownEquipment = {
   defaultSelected: "Equipments",
-  options: ["Equipments", "Single tent", "3 tents", "Trailer up to 18ft"],
+  options: [
+    "Equipments",
+    "Single tent",
+    "3 tents",
+    "Trailer up to 18ft",
+    "Fire pit",
+    "Camping gear",
+    "Hammock",
+    "Portable grill",
+    "Camping chairs",
+    "Beach chairs",
+  ],
 };
 
 const dropDownRegion = {

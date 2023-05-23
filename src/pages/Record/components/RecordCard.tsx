@@ -1,20 +1,46 @@
-import React from "react";
+import React, { Fragment, useContext } from "react";
 import styles from "./RecordCard.module.css";
 import { Row, Col, Card, Container } from "react-bootstrap";
+import ApiService from "../../../shared/services/ApiService";
+import { BookingsContext } from "../../../shared/contexts/bookings-context";
+
+const SERVER_ENDPOINT = "http://localhost:8080/";
 
 interface RecordCardProps {
-  bookingId: string;
-  bookingDate: Date;
-  customerName: string;
-  customerEmail: string;
+  _id: string;
+  createDate: Date;
+  start: Date;
+  end: Date;
+  campsite: { _id: string; image: string };
 }
 
 const RecordCard: React.FC<RecordCardProps> = (props) => {
+  const { bookingRecordList, setBookingRecordList } =
+    useContext(BookingsContext);
+
+  const cancelHandler = async () => {
+    try {
+      const response = await ApiService.cancelBooking(props._id);
+      if (response.status === 201) {
+        const updatedBookingList = bookingRecordList.filter(
+          (booking) => booking._id !== props._id
+        );
+        setBookingRecordList(updatedBookingList);
+        console.log(bookingRecordList);
+        alert("Your booking is canceled");
+      } else {
+        alert("Your booking cannot be canceled!");
+      }
+    } catch (error) {
+      console.error("Error fetching:", error);
+    }
+  };
+
   return (
     <Container className={styles.cardContainer} fluid>
       <Row className={styles.cardHeader}>
         <p className={[styles.p, styles.p_title].join(" ")}>
-          Booking #{props.bookingId}
+          Booking #{props._id}
         </p>
       </Row>
       <Row className={styles.cardBody}>
@@ -29,9 +55,7 @@ const RecordCard: React.FC<RecordCardProps> = (props) => {
         >
           <Card.Img
             className={styles.img}
-            src={
-              "https://hips.hearstapps.com/hmg-prod/images/sunrise-quotes-21-1586892331.jpg?crop=1.00xw:0.895xh;0,0&resize=1200:*"
-            }
+            src={`${SERVER_ENDPOINT}${props.campsite.image}`}
           />
         </Col>
         <Col
@@ -45,15 +69,15 @@ const RecordCard: React.FC<RecordCardProps> = (props) => {
         >
           <>
             <p className={styles.p}>Booking Date: </p>
-            <span>{props.bookingDate.toLocaleDateString()}</span>
+            <span>{new Date(props.createDate).toLocaleDateString()}</span>
           </>
           <>
             <p className={styles.p}>Check In: </p>
-            <span>2023-04-22</span>
+            <span>{new Date(props.start).toLocaleDateString()}</span>
           </>
           <>
             <p className={styles.p}>Check out: </p>
-            <span>2023-04-22</span>
+            <span>{new Date(props.end).toLocaleDateString()}</span>
           </>
         </Col>
         <Col
@@ -65,8 +89,9 @@ const RecordCard: React.FC<RecordCardProps> = (props) => {
           xxl={2}
           className={styles.cardBtnContainer}
         >
-          <button className={styles.button}>Update</button>
-          <button className={styles.button}>Cancel</button>
+          <button className={styles.button} onClick={cancelHandler}>
+            Cancel
+          </button>
         </Col>
       </Row>
     </Container>

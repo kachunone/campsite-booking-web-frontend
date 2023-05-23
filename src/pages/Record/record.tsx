@@ -1,41 +1,45 @@
-import React from "react";
+import React, { useEffect, useState, createContext } from "react";
 import RecordCard from "./components/RecordCard";
 import List from "./components/RecordCardList";
 import { Container, Row, Col } from "react-bootstrap";
+import ApiService from "../../shared/services/ApiService";
+import { BookingsContext } from "../../shared/contexts/bookings-context";
 
 interface RecordCardProps {
-  bookingId: string;
-  bookingDate: Date;
-  customerName: string;
-  customerEmail: string;
+  _id: string;
+  createDate: Date;
+  start: Date;
+  end: Date;
+  campsite: { _id: string; image: string };
 }
-
-const bookings: RecordCardProps[] = [
-  // {
-  //   bookingId: "1234",
-  //   bookingDate: new Date("2023-04-23"),
-  //   customerName: "John Doe",
-  //   customerEmail: "johndoe@example.com",
-  // },
-  // {
-  //   bookingId: "5678",
-  //   bookingDate: new Date("2023-04-24"),
-  //   customerName: "Jane Smith",
-  //   customerEmail: "janesmith@example.com",
-  // },
-  // {
-  //   bookingId: "9012",
-  //   bookingDate: new Date("2023-04-25"),
-  //   customerName: "Bob Johnson",
-  //   customerEmail: "bobjohnson@example.com",
-  // },
-];
 
 const renderCard = (booking: RecordCardProps) => {
   return <RecordCard {...booking} />;
 };
 
 const Record: React.FC = () => {
+  const [bookingRecordList, setBookingRecordList] = useState<RecordCardProps[]>(
+    []
+  );
+
+  useEffect(() => {
+    const fetchBookings = async () => {
+      try {
+        const data = await ApiService.getBookingsByUserId();
+        setBookingRecordList(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error fetching campsites:", error);
+      }
+    };
+    fetchBookings();
+  }, []);
+
+  const contextValue = {
+    bookingRecordList: bookingRecordList,
+    setBookingRecordList: setBookingRecordList,
+  };
+
   return (
     <Container fluid>
       <Row>
@@ -47,11 +51,13 @@ const Record: React.FC = () => {
             backgroundColor: "#354057",
           }}
         >
-          <List
-            items={bookings}
-            renderItem={renderCard}
-            keyField="bookingId"
-          ></List>
+          <BookingsContext.Provider value={contextValue}>
+            <List
+              items={bookingRecordList}
+              renderItem={renderCard}
+              keyField="_id"
+            ></List>
+          </BookingsContext.Provider>
         </Col>
       </Row>
     </Container>
