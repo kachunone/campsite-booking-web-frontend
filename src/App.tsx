@@ -16,6 +16,12 @@ function App(): JSX.Element {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
+    console.log("render app");
+
+    if (sessionStorage.getItem("token")) {
+      sessionStorage.removeItem("token");
+    }
+
     const handleBeforeUnload = (event: BeforeUnloadEvent) => {
       // Cancel the event
       event.preventDefault();
