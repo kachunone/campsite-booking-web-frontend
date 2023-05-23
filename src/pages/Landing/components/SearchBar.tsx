@@ -6,9 +6,25 @@ import { useNavigate } from "react-router-dom";
 import { GeoAltFill, XDiamondFill } from "react-bootstrap-icons";
 import { Col, Row } from "react-bootstrap";
 
+interface SearchBarProps {
+  page: string;
+  selectedEquipment: string;
+  selectedRegion: string;
+  selectedStart: Date | null;
+  selectedEnd: Date | null;
+  onSearch:
+    | ((
+        equipment: string,
+        region: string,
+        start: Date | null,
+        end: Date | null
+      ) => Promise<void>)
+    | null;
+}
+
 const dropDownEquipment = {
   defaultSelected: "Equipments",
-  options: ["Equipments", "Singe tent", "3 tents", "Trailer up to 18ft"],
+  options: ["Equipments", "Single tent", "3 tents", "Trailer up to 18ft"],
 };
 
 const dropDownRegion = {
@@ -33,13 +49,17 @@ const equipmentIcon: ReactElement = (
   <XDiamondFill style={{ marginBottom: 3.5, fontSize: 13, marginRight: 8 }} />
 );
 
-const SearchBar: React.FC = () => {
-  const [selectedEquipment, setSelectedEquipment] =
-    useState<string>("Equipments");
-  const [selectedRegion, setSelectedRegion] = useState<string>("Regions");
+const SearchBar: React.FC<SearchBarProps> = (props) => {
+  const [selectedEquipment, setSelectedEquipment] = useState<string>(
+    props.selectedEquipment
+  );
+  const [selectedRegion, setSelectedRegion] = useState<string>(
+    props.selectedRegion
+  );
 
-  const [startDate, setStartDate] = useState<Date | null>(null);
-  const [endDate, setEndDate] = useState<Date | null>(null);
+  const [startDate, setStartDate] = useState<Date | null>(props.selectedStart);
+  const [endDate, setEndDate] = useState<Date | null>(props.selectedEnd);
+  const [pageOn, setPageOn] = useState<string>(props.page);
 
   const handleSelectEquipment = (eventKey: string | null) => {
     setSelectedEquipment(eventKey!);
@@ -57,9 +77,20 @@ const SearchBar: React.FC = () => {
 
   const navigate = useNavigate();
   const btnPressed = () => {
-    navigate("/choosing", {
-      state: { type: selectedEquipment, region: selectedRegion },
-    });
+    if (pageOn === "landing") {
+      navigate("/choosing", {
+        state: {
+          type: selectedEquipment,
+          region: selectedRegion,
+          start: startDate,
+          end: endDate,
+        },
+      });
+    } else if (pageOn === "choosing") {
+      if (props.onSearch) {
+        props.onSearch(selectedEquipment, selectedRegion, startDate, endDate);
+      }
+    }
   };
 
   return (

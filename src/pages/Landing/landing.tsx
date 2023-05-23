@@ -23,7 +23,14 @@ const Landing: React.FC = () => {
           <div className="main-container">
             <h1>Let's Go Camping!</h1>
             <div className="searchBarContainer">
-              <SearchBar />
+              <SearchBar
+                selectedEquipment="Equipments"
+                selectedRegion="Regions"
+                selectedStart={null}
+                selectedEnd={null}
+                page="landing"
+                onSearch={null}
+              />
             </div>
           </div>
         </Col>
