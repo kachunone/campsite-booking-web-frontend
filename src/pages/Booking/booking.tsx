@@ -1,6 +1,6 @@
 import React, { useState, useEffect, ChangeEvent, useContext } from "react";
 import "./booking.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, Navigate } from "react-router-dom";
 import DayPicker from "../Landing/components/DatePicker";
 import { Col, Row, Card, ListGroup, Container, Button } from "react-bootstrap";
 import ApiService from "../../shared/services/ApiService";
@@ -23,7 +23,16 @@ interface BookingData {
 }
 
 const Booking: React.FC = () => {
+  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [endDate, setEndDate] = useState<Date | null>(null);
+
+  //prevent directly accessing via url
   const { state } = useLocation();
+  const isNavigated: boolean = state && state.campsite;
+  if (!isNavigated) {
+    return <Navigate to="/landing" replace />;
+  }
+
   const campsiteInfo: Campsite = state.campsite;
 
   const campsiteBookedDates = campsiteInfo.bookings.map((booking) => {
@@ -32,11 +41,6 @@ const Booking: React.FC = () => {
       end: new Date(booking.end),
     };
   });
-
-  console.log(process.env.REACT_APP_BASE_URL);
-
-  const [startDate, setStartDate] = useState<Date | null>(null);
-  const [endDate, setEndDate] = useState<Date | null>(null);
 
   const onChangeDates = (dates: [Date, Date]) => {
     const [start, end] = dates;
