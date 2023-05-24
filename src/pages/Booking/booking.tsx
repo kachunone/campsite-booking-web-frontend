@@ -77,7 +77,7 @@ const Booking: React.FC = () => {
               height: "100%",
               objectFit: "cover",
             }}
-            src={`${process.env.REACT_APP_BASE_URL}${campsiteInfo.image}`}
+            src={`${process.env.REACT_APP_BASE_URL}/${campsiteInfo.image}`}
           />
         </Col>
         <Col>

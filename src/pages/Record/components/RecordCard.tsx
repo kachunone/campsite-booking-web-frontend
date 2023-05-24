@@ -4,7 +4,7 @@ import { Row, Col, Card, Container } from "react-bootstrap";
 import ApiService from "../../../shared/services/ApiService";
 import { BookingsContext } from "../../../shared/contexts/bookings-context";
 
-const SERVER_ENDPOINT = "http://localhost:8080/";
+const SERVER_ENDPOINT = process.env.REACT_APP_BASE_URL;
 
 interface RecordCardProps {
   _id: string;
@@ -55,7 +55,7 @@ const RecordCard: React.FC<RecordCardProps> = (props) => {
         >
           <Card.Img
             className={styles.img}
-            src={`${SERVER_ENDPOINT}${props.campsite.image}`}
+            src={`${SERVER_ENDPOINT}/${props.campsite.image}`}
           />
         </Col>
         <Col

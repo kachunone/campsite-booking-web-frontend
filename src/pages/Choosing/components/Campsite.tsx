@@ -32,7 +32,7 @@ const Campsite: React.FC<CampsiteProps> = (campsite) => {
           height: "10rem",
           objectFit: "cover",
         }}
-        src={`${SERVER_ENDPOINT}${campsite.image}`}
+        src={`${SERVER_ENDPOINT}/${campsite.image}`}
       />
       <Card.Body style={{ height: "8rem" }}>
         <Card.Title>{campsite.title}</Card.Title>

@@ -25,7 +25,7 @@ const Auth: React.FC = () => {
     const action = isLoginMode ? "login" : "signup";
 
     const response = await fetch(
-      `${process.env.REACT_APP_BASE_URL}api/auth/${action}`,
+      `${process.env.REACT_APP_BASE_URL}/api/auth/${action}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
