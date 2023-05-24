@@ -24,11 +24,14 @@ const Auth: React.FC = () => {
 
     const action = isLoginMode ? "login" : "signup";
 
-    const response = await fetch(`http://localhost:8080/api/auth/${action}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    const response = await fetch(
+      `${process.env.REACT_APP_BASE_URL}api/auth/${action}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      }
+    );
 
     if (response.status === 200) {
       const { token } = await response.json();

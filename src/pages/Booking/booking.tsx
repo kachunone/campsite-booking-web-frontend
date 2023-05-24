@@ -5,8 +5,6 @@ import DayPicker from "../Landing/components/DatePicker";
 import { Col, Row, Card, ListGroup, Container, Button } from "react-bootstrap";
 import ApiService from "../../shared/services/ApiService";
 
-const SERVER_ENDPOINT = "http://localhost:8080/";
-
 interface Campsite {
   _id: string;
   title: string;
@@ -34,6 +32,8 @@ const Booking: React.FC = () => {
       end: new Date(booking.end),
     };
   });
+
+  console.log(process.env.REACT_APP_BASE_URL);
 
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
@@ -77,7 +77,7 @@ const Booking: React.FC = () => {
               height: "100%",
               objectFit: "cover",
             }}
-            src={`${SERVER_ENDPOINT}${campsiteInfo.image}`}
+            src={`${process.env.REACT_APP_BASE_URL}${campsiteInfo.image}`}
           />
         </Col>
         <Col>

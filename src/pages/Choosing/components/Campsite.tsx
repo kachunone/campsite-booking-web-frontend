@@ -3,7 +3,7 @@ import styles from "./Campsite.module.css";
 import { Card, ListGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-const SERVER_ENDPOINT = "http://localhost:8080/";
+const SERVER_ENDPOINT = process.env.REACT_APP_BASE_URL;
 
 interface CampsiteProps {
   _id: string;

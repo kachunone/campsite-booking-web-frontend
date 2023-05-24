@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 class ApiService {
   static async getCampsites(): Promise<any> {
