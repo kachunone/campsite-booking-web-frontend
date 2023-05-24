@@ -9,6 +9,7 @@ import Auth from "./pages/Auth/Auth";
 import { AuthContext } from "./shared/contexts/auth-context";
 import { useState, useEffect } from "react";
 import Record from "./pages/Record/record";
+import ScrollToTop from "./shared/components/ScrollToTop";
 
 import "./App.css";
 
@@ -53,6 +54,7 @@ function App(): JSX.Element {
   return (
     <AuthContext.Provider value={contextValue}>
       <BrowserRouter>
+        <ScrollToTop />
         <NavLinks />
         <Routes>
           <Route path="/landing" element={<Home />}></Route>

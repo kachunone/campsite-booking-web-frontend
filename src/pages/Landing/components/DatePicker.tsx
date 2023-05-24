@@ -22,7 +22,7 @@ const DayPicker: React.FC<DayPickerProps> = (props) => {
       selectsRange={true}
       minDate={new Date()}
       dateFormat="MMM dd, yyyy"
-      placeholderText={"Check-in and Check-out dates"}
+      placeholderText={"Check-in   |   Check-out"}
       excludeDateIntervals={props.excludeDateIntervals}
       // inline
     />

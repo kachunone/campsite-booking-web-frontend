@@ -1,6 +1,6 @@
 import React, { ChangeEvent, Fragment, useEffect, useState } from "react";
 import "./landing.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import camp1 from "../../assets/images/landing-img/camping-01.png";
 import camp2 from "../../assets/images/landing-img/camping-fire.png";
 import camp3 from "../../assets/images/landing-img/camping-lake.png";
@@ -16,9 +16,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Col, Row, Container } from "react-bootstrap";
 
 const Landing: React.FC = () => {
-  useEffect(() => {
-    console.log("landing render!");
-  }, []);
+  const navigate = useNavigate();
 
   return (
     <Container fluid className="landing-container">
@@ -77,7 +75,13 @@ const Landing: React.FC = () => {
               elit, sed do eiusmod tempor incididunt ut labore et dolore magna
               aliqua.
             </p>
-            <button>START</button>
+            <button
+              onClick={() => {
+                navigate("/choosing");
+              }}
+            >
+              START
+            </button>
           </div>
         </Col>
         <Col className="right-side">
