@@ -22,7 +22,13 @@ const Record: React.FC = () => {
     []
   );
 
+  const isLoggedIn = sessionStorage.getItem("token") ? true : false;
+
   useEffect(() => {
+    if (!isLoggedIn) {
+      return;
+    }
+
     const fetchBookings = async () => {
       try {
         const data = await ApiService.getBookingsByUserId();
@@ -51,13 +57,18 @@ const Record: React.FC = () => {
             backgroundColor: "#354057",
           }}
         >
-          <BookingsContext.Provider value={contextValue}>
-            <List
-              items={bookingRecordList}
-              renderItem={renderCard}
-              keyField="_id"
-            ></List>
-          </BookingsContext.Provider>
+          {isLoggedIn && (
+            <BookingsContext.Provider value={contextValue}>
+              <List
+                items={bookingRecordList}
+                renderItem={renderCard}
+                keyField="_id"
+              ></List>
+            </BookingsContext.Provider>
+          )}
+          {!isLoggedIn && (
+            <h1 style={{ color: "white" }}>Unauthorized access</h1>
+          )}
         </Col>
       </Row>
     </Container>
