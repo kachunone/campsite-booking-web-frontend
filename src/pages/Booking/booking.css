@@ -18,8 +18,8 @@
 }
 
 .detail-card-container {
-  width: 80vw;
-  max-width: 40rem;
+  width: 70vw;
+  max-width: 70rem;
   background-color: #efe1e8;
   row-gap: 1rem;
   padding-top: 0.6rem;
