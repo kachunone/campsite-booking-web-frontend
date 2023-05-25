@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./choosing.css";
-import SearchBar from "../Landing/components/SearchBar";
+import SearchBar from "../../shared/components/SearchBar";
 import Campsite from "./components/Campsite";
 import CampsiteList from "./components/CampsiteList";
 import { Col, Row, Container } from "react-bootstrap";

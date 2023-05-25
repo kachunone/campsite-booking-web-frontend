@@ -10,7 +10,7 @@ import campFireIcon from "../../assets/images/landing-img/campfire.png";
 import mapIcon from "../../assets/images/landing-img/map.png";
 import backpackIcon from "../../assets/images/landing-img/backpack.png";
 
-import SearchBar from "./components/SearchBar";
+import SearchBar from "../../shared/components/SearchBar";
 
 import "react-datepicker/dist/react-datepicker.css";
 import { Col, Row, Container } from "react-bootstrap";

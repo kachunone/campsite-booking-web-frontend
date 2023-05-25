@@ -1,7 +1,7 @@
 import React, { useState, useEffect, ChangeEvent, useContext } from "react";
 import "./booking.css";
 import { useLocation, Navigate, useNavigate } from "react-router-dom";
-import DayPicker from "../Landing/components/DatePicker";
+import DayPicker from "../../shared/components/DatePicker";
 import { Col, Row, Card, ListGroup, Container, Button } from "react-bootstrap";
 import ApiService from "../../shared/services/ApiService";
 import Modal from "react-bootstrap/Modal";
