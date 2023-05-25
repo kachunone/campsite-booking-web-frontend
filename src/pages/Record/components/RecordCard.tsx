@@ -1,8 +1,9 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import styles from "./RecordCard.module.css";
-import { Row, Col, Card, Container } from "react-bootstrap";
+import { Row, Col, Card, Container, Button } from "react-bootstrap";
 import ApiService from "../../../shared/services/ApiService";
 import { BookingsContext } from "../../../shared/contexts/bookings-context";
+import Modal from "react-bootstrap/Modal";
 
 const SERVER_ENDPOINT = process.env.REACT_APP_BASE_URL;
 
@@ -18,6 +19,12 @@ const RecordCard: React.FC<RecordCardProps> = (props) => {
   const { bookingRecordList, setBookingRecordList } =
     useContext(BookingsContext);
 
+  //Modal setup
+  const [show, setShow] = useState(false);
+  const [prompt, setPrompt] = useState("Are you sure to cancel this booking?");
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const cancelHandler = async () => {
     try {
       const response = await ApiService.cancelBooking(props._id);
@@ -26,10 +33,9 @@ const RecordCard: React.FC<RecordCardProps> = (props) => {
           (booking) => booking._id !== props._id
         );
         setBookingRecordList(updatedBookingList);
-        console.log(bookingRecordList);
-        alert("Your booking is canceled");
       } else {
-        alert("Your booking cannot be canceled!");
+        setShow(true);
+        setPrompt("Your booking cannot be canceled!");
       }
     } catch (error) {
       console.error("Error fetching:", error);
@@ -89,11 +95,25 @@ const RecordCard: React.FC<RecordCardProps> = (props) => {
           xxl={2}
           className={styles.cardBtnContainer}
         >
-          <button className={styles.button} onClick={cancelHandler}>
+          <button className={styles.button} onClick={handleShow}>
             Cancel
           </button>
         </Col>
       </Row>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Prompt</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{prompt}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Back
+          </Button>
+          <Button variant="danger" onClick={cancelHandler}>
+            Confirm
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 };

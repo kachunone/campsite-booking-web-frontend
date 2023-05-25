@@ -15,10 +15,9 @@ import "./App.css";
 
 function App(): JSX.Element {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState("");
 
   useEffect(() => {
-    console.log("render app");
-
     if (sessionStorage.getItem("token")) {
       sessionStorage.removeItem("token");
     }
@@ -45,10 +44,16 @@ function App(): JSX.Element {
     sessionStorage.removeItem("token");
   };
 
+  const setUsername = (username: string) => {
+    setLoggedInUser(username);
+  };
+
   const contextValue = {
     isLoggedIn: isLoggedIn,
+    loggedInUser: loggedInUser,
     login: loginHandler,
     logout: logoutHandler,
+    setLoggedInUser: setUsername,
   };
 
   return (

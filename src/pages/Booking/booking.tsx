@@ -4,6 +4,7 @@ import { useLocation, Navigate } from "react-router-dom";
 import DayPicker from "../Landing/components/DatePicker";
 import { Col, Row, Card, ListGroup, Container, Button } from "react-bootstrap";
 import ApiService from "../../shared/services/ApiService";
+import Modal from "react-bootstrap/Modal";
 
 interface Campsite {
   _id: string;
@@ -25,6 +26,13 @@ interface BookingData {
 const Booking: React.FC = () => {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
+
+  //Modal setup
+  const [show, setShow] = useState(false);
+  const [prompt, setPrompt] = useState("");
+  const [actionResult, setActionResult] = useState("");
+
+  const handleClose = () => setShow(false);
 
   //prevent directly accessing via url
   const { state } = useLocation();
@@ -48,9 +56,19 @@ const Booking: React.FC = () => {
     setEndDate(end);
   };
 
+  const bookBtnPressed = () => {
+    setShow(true);
+    if (startDate === null || endDate === null) {
+      setPrompt("datesInputPrompt");
+
+      return;
+    }
+    setPrompt("confirmPrompt");
+  };
+
   const bookBtnHandler = async () => {
     if (startDate === null || endDate === null) {
-      return alert("Please select Dates before submit your booking.");
+      return;
     }
 
     const booking: BookingData = {
@@ -61,15 +79,78 @@ const Booking: React.FC = () => {
 
     try {
       const response = await ApiService.createBooking(booking);
+      setShow(true);
       if (response.status === 201) {
-        alert("Your booking is comfirmed");
+        setActionResult("Booking Confirmed");
+        setPrompt("confirmSuccessPrompt");
       } else {
-        alert("You booking cannot be processed!");
+        setActionResult("Booking Failed");
+        setPrompt("confirmSuccessPrompt");
       }
     } catch (error) {
       console.error("Error fetching:", error);
     }
   };
+
+  const datesInputPrompt = (
+    <Modal show={show} onHide={handleClose} backdrop="static" centered>
+      <Modal.Header>
+        <Modal.Title>Please select dates</Modal.Title>
+      </Modal.Header>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Close
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
+
+  const confirmPrompt = (
+    <Modal show={show} onHide={handleClose} backdrop="static" centered>
+      <Modal.Header>
+        <Modal.Title>Booking Detail</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <p>
+          <span style={{ fontWeight: "bold" }}>Campsite: </span>
+          {campsiteInfo.title}
+        </p>
+        <p>
+          <span style={{ fontWeight: "bold" }}>Check-In Date: </span>
+          {startDate?.toLocaleDateString()}
+        </p>
+        <p>
+          <span style={{ fontWeight: "bold" }}>Check-Out Date: </span>
+          {endDate?.toLocaleDateString()}
+        </p>
+        <p>
+          <span style={{ fontWeight: "bold" }}>Price: </span>$
+          {campsiteInfo.price}
+        </p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Close
+        </Button>
+        <Button variant="danger" onClick={bookBtnHandler}>
+          Confirm
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
+
+  const confirmSuccessPrompt = (
+    <Modal show={show} onHide={handleClose} backdrop="static" centered>
+      <Modal.Header>
+        <Modal.Title>{actionResult}</Modal.Title>
+      </Modal.Header>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Close
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
 
   return (
     <Container fluid className="booking">
@@ -133,7 +214,7 @@ const Booking: React.FC = () => {
                     />
                   </Col>
                   <Col xs={12} sm={12} md={6} lg={6} xl={6} xxl={6}>
-                    <button className="book-btn" onClick={bookBtnHandler}>
+                    <button className="book-btn" onClick={bookBtnPressed}>
                       Book
                     </button>
                   </Col>
@@ -143,6 +224,9 @@ const Booking: React.FC = () => {
           </Card>
         </Col>
       </Row>
+      {prompt === "datesInputPrompt" && datesInputPrompt}
+      {prompt === "confirmPrompt" && confirmPrompt}
+      {prompt === "confirmSuccessPrompt" && confirmSuccessPrompt}
     </Container>
   );
 };

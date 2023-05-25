@@ -16,7 +16,7 @@ class ApiService {
     try {
       const token = sessionStorage.getItem("token");
       if (!token) {
-        return alert("Token has expired.");
+        return "Token has expired.";
       }
       const response = await fetch(`${BASE_URL}/api/booking`, {
         method: "POST",
@@ -37,7 +37,7 @@ class ApiService {
     try {
       const token = sessionStorage.getItem("token");
       if (!token) {
-        return alert("Token has expired.");
+        return "Token has expired.";
       }
       const response = await fetch(`${BASE_URL}/api/booking`, {
         method: "GET",
@@ -57,7 +57,7 @@ class ApiService {
     try {
       const token = sessionStorage.getItem("token");
       if (!token) {
-        return alert("Token has expired.");
+        return "Token has expired.";
       }
       const response = await fetch(`${BASE_URL}/api/booking/${bookingId}`, {
         method: "DELETE",
