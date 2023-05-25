@@ -1,46 +1,53 @@
-# Getting Started with Create React App
+# Campsite Booking App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a full-stack campsite booking application built with the MERN stack (MongoDB, Express.js, React, Node.js). It allows users to search for campsites, filter them using a search bar, book campsites, and cancel bookings. User authentication is implemented using JSON Web Tokens (JWT). The frontend is built with React and TypeScript, and Bootstrap is used for styling.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Search campsites: Users can search for campsites using the search bar. The search results are dynamically filtered based on the input.
 
-### `npm start`
+- Campsite filtering: Users can filter campsites based on their search query. The app provides a user-friendly interface to narrow down the search results.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Campsite booking: Users can book campsites by selecting their desired dates and submitting a booking request. The booking information is sent to the backend for processing and storage.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Booking cancellation: Users can cancel their bookings if needed. The app provides a straightforward process for canceling a booking, ensuring a seamless user experience.
 
-### `npm test`
+- User authentication: User authentication is implemented using JSON Web Tokens (JWT). Users can register, log in, and securely access their bookings and account information.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+- Frontend: React, TypeScript, Bootstrap
+- Backend: Node.js, Express.js, MongoDB
+- Authentication: JSON Web Tokens (JWT)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone https://github.com/your-username/campsite-booking-app.git
+```
 
-### `npm run eject`
+2. Install the dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash 
+cd campsite-booking-app
+npm install
+```
+3. Set up the backend server:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Follow the instructions provided in the backend repository at https://github.com/kachunone/campsite-booking-web-backend.git to install and configure the backend server.
+4. Configure environment variables:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Create a .env file in the root directory of the frontend.
+- Provide the necessary environment variables, such as API endpoints in the .env file.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+5. Start the development server:
 
-## Learn More
+```bash
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The app will be running at http://localhost:3000.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
