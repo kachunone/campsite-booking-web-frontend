@@ -17,7 +17,7 @@ const Auth: React.FC = () => {
   const navigate = useNavigate();
 
   const { state } = useLocation();
-  const isNavigated: boolean = state && state.isLoginMode;
+  const isNavigated: boolean = state;
   if (!isNavigated) {
     return <Navigate to="/landing" replace />;
   }
