@@ -5,6 +5,7 @@ import DayPicker from "../Landing/components/DatePicker";
 import { Col, Row, Card, ListGroup, Container, Button } from "react-bootstrap";
 import ApiService from "../../shared/services/ApiService";
 import Modal from "react-bootstrap/Modal";
+import { AuthContext } from "../../shared/contexts/auth-context";
 
 interface Campsite {
   _id: string;
@@ -25,6 +26,7 @@ interface BookingData {
 }
 
 const Booking: React.FC = () => {
+  const auth = useContext(AuthContext);
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
 
@@ -90,7 +92,11 @@ const Booking: React.FC = () => {
         setActionResult("Booking Confirmed");
         setPrompt("confirmSuccessPrompt");
       } else {
-        setActionResult("Booking Failed");
+        if (!auth.isLoggedIn) {
+          setActionResult("Login Required");
+        } else {
+          setActionResult("Booking Failed");
+        }
         setPrompt("confirmSuccessPrompt");
       }
     } catch (error) {

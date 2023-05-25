@@ -22,7 +22,7 @@ const Auth: React.FC = () => {
   const handleSubmit = async (formData: any, isLoginMode: boolean) => {
     if (!formData.email || !formData.password) {
       setHeader("Invalid input");
-      setPrompt("Please enter both username and password");
+      setPrompt("Please enter all of the fields.");
       setShow(true);
       return;
     }
