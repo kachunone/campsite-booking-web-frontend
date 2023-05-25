@@ -13,6 +13,7 @@ interface RecordCardProps {
   start: Date;
   end: Date;
   campsite: { _id: string; image: string };
+  totalPrice: number;
 }
 
 const RecordCard: React.FC<RecordCardProps> = (props) => {
@@ -84,6 +85,10 @@ const RecordCard: React.FC<RecordCardProps> = (props) => {
           <>
             <p className={styles.p}>Check out: </p>
             <span>{new Date(props.end).toLocaleDateString()}</span>
+          </>
+          <>
+            <p className={styles.p}>Total fee: </p>
+            <span>${props.totalPrice}</span>
           </>
         </Col>
         <Col

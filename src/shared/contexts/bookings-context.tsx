@@ -6,6 +6,7 @@ interface RecordCardProps {
   start: Date;
   end: Date;
   campsite: { _id: string; image: string };
+  totalPrice: number;
 }
 
 interface BookingListState {

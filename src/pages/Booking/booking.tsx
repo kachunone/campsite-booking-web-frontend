@@ -1,6 +1,6 @@
 import React, { useState, useEffect, ChangeEvent, useContext } from "react";
 import "./booking.css";
-import { useLocation, Navigate } from "react-router-dom";
+import { useLocation, Navigate, useNavigate } from "react-router-dom";
 import DayPicker from "../Landing/components/DatePicker";
 import { Col, Row, Card, ListGroup, Container, Button } from "react-bootstrap";
 import ApiService from "../../shared/services/ApiService";
@@ -21,6 +21,7 @@ interface BookingData {
   campsiteId: string;
   start: Date;
   end: Date;
+  totalPrice: number;
 }
 
 const Booking: React.FC = () => {
@@ -30,6 +31,7 @@ const Booking: React.FC = () => {
   //Modal setup
   const [show, setShow] = useState(false);
   const [prompt, setPrompt] = useState("");
+  const [totalPrice, setTotalPrice] = useState(0);
   const [actionResult, setActionResult] = useState("");
 
   const handleClose = () => setShow(false);
@@ -60,9 +62,12 @@ const Booking: React.FC = () => {
     setShow(true);
     if (startDate === null || endDate === null) {
       setPrompt("datesInputPrompt");
-
       return;
     }
+    const nightCount = Math.ceil(
+      (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)
+    );
+    setTotalPrice(nightCount * campsiteInfo.price);
     setPrompt("confirmPrompt");
   };
 
@@ -75,6 +80,7 @@ const Booking: React.FC = () => {
       campsiteId: campsiteInfo._id,
       start: startDate,
       end: endDate,
+      totalPrice: totalPrice,
     };
 
     try {
@@ -124,8 +130,7 @@ const Booking: React.FC = () => {
           {endDate?.toLocaleDateString()}
         </p>
         <p>
-          <span style={{ fontWeight: "bold" }}>Price: </span>$
-          {campsiteInfo.price}
+          <span style={{ fontWeight: "bold" }}>Price: </span>${totalPrice}
         </p>
       </Modal.Body>
       <Modal.Footer>

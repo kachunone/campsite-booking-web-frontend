@@ -11,6 +11,7 @@ interface RecordCardProps {
   start: Date;
   end: Date;
   campsite: { _id: string; image: string };
+  totalPrice: number;
 }
 
 const renderCard = (booking: RecordCardProps) => {
@@ -33,7 +34,6 @@ const Record: React.FC = () => {
       try {
         const data = await ApiService.getBookingsByUserId();
         setBookingRecordList(data);
-        console.log(data);
       } catch (error) {
         console.error("Error fetching campsites:", error);
       }

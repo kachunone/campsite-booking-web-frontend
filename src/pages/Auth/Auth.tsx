@@ -50,7 +50,7 @@ const Auth: React.FC = () => {
       sessionStorage.setItem("token", token);
       auth.login();
       const formattedUsername =
-        username.charAt(0).toUpperCase() + username.slice(1);
+        username.charAt(0).toUpperCase() + username.slice(1).toLowerCase();
       auth.setLoggedInUser(formattedUsername);
       navigate("/choosing", { replace: true });
     } else if (response.status === 201) {
