@@ -24,13 +24,13 @@ This is a full-stack campsite booking application built with the MERN stack (Mon
 
 1. Clone the repository:
 
-```bash
+```
 git clone https://github.com/kachunone/campsite-booking-web-frontend.git
 ```
 
 2. Install the dependencies:
 
-```bash 
+```
 cd campsite-booking-app
 npm install
 ```
@@ -44,7 +44,7 @@ npm install
 
 5. Start the development server:
 
-```bash
+```
 npm start
 ```
 
