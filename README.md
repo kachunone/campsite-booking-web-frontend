@@ -36,7 +36,7 @@ npm install
 ```
 3. Set up the backend server:
 
-- Follow the instructions provided in the backend repository at https://github.com/kachunone/campsite-booking-web-backend.git to install and configure the backend server.
+- Follow the instructions provided in the backend repository at [Backend Repository](https://github.com/kachunone/campsite-booking-web-backend.git) to install and configure the backend server.
 4. Configure environment variables:
 
 - Create a .env file in the root directory of the frontend.
