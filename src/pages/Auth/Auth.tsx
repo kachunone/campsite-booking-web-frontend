@@ -43,7 +43,7 @@ const Auth: React.FC = () => {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/api/auth/${action}`,
+        `${import.meta.env.VITE_BASE_URL}/api/auth/${action}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
