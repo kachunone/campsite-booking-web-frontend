@@ -5,7 +5,7 @@ import ApiService from "../../../shared/services/ApiService";
 import { BookingsContext } from "../../../shared/contexts/bookings-context";
 import Modal from "react-bootstrap/Modal";
 
-const SERVER_ENDPOINT = process.env.REACT_APP_BASE_URL;
+const SERVER_ENDPOINT = import.meta.env.VITE_BASE_URL;
 
 interface RecordCardProps {
   _id: string;
