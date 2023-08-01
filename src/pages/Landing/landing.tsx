@@ -14,13 +14,22 @@ import SearchBar from "../../shared/components/SearchBar";
 
 import "react-datepicker/dist/react-datepicker.css";
 import { Col, Row, Container } from "react-bootstrap";
+import backgroundImage from "../../assets/images/landing-img/img-bg.png";
 
 const Landing: React.FC = () => {
   const navigate = useNavigate();
 
   return (
     <Container fluid className="landing-container">
-      <Row className="main">
+      <Row
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          height: "45rem",
+        }}
+      >
         <Col className="gx-0">
           <div className="main-container">
             <h1>Let's Go Camping!</h1>
