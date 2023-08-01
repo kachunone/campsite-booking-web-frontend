@@ -7,14 +7,6 @@
   font-family: "rubik", Arial, Helvetica, sans-serif;
 }
 
-.main {
-  background-image: url("../../assets/images/landing-img/img-bg.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 45rem;
-}
-
 .main-container {
   /* background-color: #af3b52; */
   margin-top: 14rem;
